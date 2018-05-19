@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"lib": [
+			"es2015"
+		],
+		"target": "es5",
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"outDir": "dist",
+		"declaration": true,
+		"noUnusedLocals": true
+	},
+	"include": [
+		"src"
+	]
+}
