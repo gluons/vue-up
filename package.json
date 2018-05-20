@@ -1,7 +1,7 @@
 {
-  "name": "@gluons/vue-pack",
+  "name": "@gluons/vue-up",
   "version": "0.0.1",
-  "description": "A Vue.js library packager.",
+  "description": "A Vue.js library bundler.",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
