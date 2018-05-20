@@ -22,7 +22,7 @@
     "library",
     "bundler",
     "packager",
-    "webpack"
+    "rollup"
   ],
   "author": "Saran Tanpituckpong <sarunta@gmail.com>",
   "license": "MIT",
