@@ -1,3 +1,3 @@
-import pack from './pack';
+import bundle from './bundle';
 
-export = pack;
+export = bundle;

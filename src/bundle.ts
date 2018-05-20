@@ -66,7 +66,7 @@ export interface PackOptions {
  * @param {PackOptions} options Options.
  * @returns
  */
-export default async function pack(options: PackOptions) {
+export default async function bundle(options: PackOptions) {
 	const {
 		entry,
 		externals,
@@ -84,8 +84,8 @@ export default async function pack(options: PackOptions) {
 		sourceMap
 	});
 
-	const bundle = await rollup(inputOptions);
-	await Promise.all(outputOptionsList.map(outputOptions => bundle.write(outputOptions)));
+	const rollupBundle = await rollup(inputOptions);
+	await Promise.all(outputOptionsList.map(outputOptions => rollupBundle.write(outputOptions)));
 
 	return Promise.resolve();
 }
