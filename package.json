@@ -10,11 +10,12 @@
     "prebuild": "rimraf dist/*",
     "build": "tsc -p .",
     "watch": "tsc -p . -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "yarn build && ts-node ./scripts/run.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gluons/vue-pack.git"
+    "url": "git+https://github.com/gluons/vue-up.git"
   },
   "keywords": [
     "vue",
@@ -27,9 +28,26 @@
   "author": "Saran Tanpituckpong <sarunta@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gluons/vue-pack/issues"
+    "url": "https://github.com/gluons/vue-up/issues"
   },
-  "homepage": "https://github.com/gluons/vue-pack",
+  "homepage": "https://github.com/gluons/vue-up",
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.jest.json"
+      }
+    }
+  },
   "peerDependencies": {
     "vue": "2"
   },
@@ -45,8 +63,13 @@
     "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "@types/node": "8",
+    "@vue/test-utils": "^1.0.0-beta.16",
+    "jest": "^22.4.4",
     "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
+    "ts-node": "^6.0.3",
     "tslint": "^5.10.0",
     "tslint-config-gluons": "^1.0.5",
     "typescript": "^2.8.3",
