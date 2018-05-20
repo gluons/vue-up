@@ -28,6 +28,7 @@ export default function createInputOptions(
 			}),
 			VuePlugin(),
 			minify({
+				mangle: false,
 				comments: false
 			})
 		],
