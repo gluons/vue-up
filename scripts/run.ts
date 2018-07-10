@@ -1,12 +1,15 @@
-import { resolve } from 'path';
+import { join, resolve } from 'path';
 
 import bundle from '../dist/bundle';
 
+const fixturePath = resolve(__dirname, '../test-fixture');
+
+process.chdir(fixturePath);
+
 bundle({
-	entry: resolve(__dirname, '../test-fixture/src/index.ts'),
+	entry: join(fixturePath, 'src/index.ts'),
 	libraryName: 'Hello',
 	fileName: 'hello-plugin',
-	path: resolve(__dirname, '../test-fixture/dist'),
 	sourceMap: false
 })
 	.then(() => {

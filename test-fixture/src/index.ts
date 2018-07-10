@@ -1,10 +1,8 @@
-/// <reference path='./sfc.d.ts' />
-
-import Vue from 'vue';
+import Vue, { VueConstructor } from 'vue';
 
 import Hello from './components/Hello.vue';
 
-function install(vue: typeof Vue) {
+function install(vue: VueConstructor<Vue>) {
 	vue.component('Hello', Hello);
 }
 
