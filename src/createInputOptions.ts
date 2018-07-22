@@ -29,7 +29,8 @@ export default function createInputOptions(
 				comments: false
 			})
 		],
-		external: externals
+		external: externals,
+		inlineDynamicImports: false
 	};
 
 	return inputOptions;
