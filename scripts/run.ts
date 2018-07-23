@@ -9,8 +9,7 @@ process.chdir(fixturePath);
 bundle({
 	entry: join(fixturePath, 'src/index.ts'),
 	libraryName: 'Hello',
-	fileName: 'hello-plugin',
-	sourceMap: false
+	fileName: 'hello-plugin'
 })
 	.then(() => {
 		console.log('Build success.');
