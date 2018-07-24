@@ -1,7 +1,5 @@
-import { join, resolve } from 'path';
+import { join } from 'path';
 import { ModuleFormat, OutputOptions as RollupOutputOptions } from 'rollup';
-
-import nvl from './utils/nvl';
 
 /**
  * Options of `createOutputOptions`.
@@ -31,7 +29,7 @@ export interface OutputOptions {
 	 * @default 'dist'
 	 * @memberof OutputOptions
 	 */
-	outPath?: string;
+	outPath: string;
 	/**
 	 * Use source map?
 	 *
@@ -39,7 +37,7 @@ export interface OutputOptions {
 	 * @default true
 	 * @memberof OutputOptions
 	 */
-	sourceMap?: boolean;
+	sourceMap: boolean;
 }
 
 /**
@@ -50,14 +48,7 @@ export interface OutputOptions {
  * @returns {RollupOutputOptions[]}
  */
 export default function createOutputOptions(options: OutputOptions): RollupOutputOptions[] {
-	options.outPath = nvl(options.outPath, 'dist');
-	options.sourceMap = nvl(options.sourceMap, true);
-
 	let { fileName, libraryName, outPath, sourceMap } = options;
-
-	if (outPath === 'dist') {
-		outPath = resolve(process.cwd(), outPath);
-	}
 
 	const formats: ModuleFormat[] = ['cjs', 'es', 'iife'];
 
