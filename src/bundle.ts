@@ -1,3 +1,5 @@
+import del from 'del';
+import { join } from 'path';
 import { rollup } from 'rollup';
 
 import createInputOptions from './createInputOptions';
@@ -23,8 +25,12 @@ export default async function bundle(config: Configuration): Promise<void> {
 		fileName,
 		libraryName,
 		path,
+		cleanOutDir,
 		sourceMap
 	} = config;
+
+	// tslint:disable-next-line: no-unused-expression
+	cleanOutDir && await del(join(path, '*'));
 
 	const inputOptions = createInputOptions(entry, externals);
 	const outputOptionsList = createOutputOptions({

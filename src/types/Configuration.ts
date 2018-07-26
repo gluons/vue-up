@@ -39,6 +39,14 @@ export default interface Configuration {
 	 */
 	path?: string;
 	/**
+	 * Clean output directory before bundling.
+	 *
+	 * @type {boolean}
+	 * @default true
+	 * @memberof Configuration
+	 */
+	cleanOutDir?: boolean;
+	/**
 	 * Use source map?
 	 *
 	 * @type {boolean}

@@ -4,6 +4,7 @@ const defaultConfig = {
 	path() {
 		return join(process.cwd(), 'dist');
 	},
+	cleanOutDir: true,
 	sourceMap: true,
 	externals: ['vue']
 };
