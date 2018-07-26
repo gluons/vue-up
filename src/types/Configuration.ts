@@ -31,13 +31,13 @@ export default interface Configuration {
 	 */
 	fileName: string;
 	/**
-	 * Output path.
+	 * Output directory.
 	 *
 	 * @type {string}
 	 * @default 'dist'
 	 * @memberof PackOptions
 	 */
-	path?: string;
+	outDir?: string;
 	/**
 	 * Clean output directory before bundling.
 	 *

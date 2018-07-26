@@ -1,7 +1,7 @@
 import { join } from 'path';
 
 const defaultConfig = {
-	path() {
+	outDir() {
 		return join(process.cwd(), 'dist');
 	},
 	cleanOutDir: true,

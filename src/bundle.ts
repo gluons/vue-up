@@ -24,19 +24,19 @@ export default async function bundle(config: Configuration): Promise<void> {
 		externals,
 		fileName,
 		libraryName,
-		path,
+		outDir,
 		cleanOutDir,
 		sourceMap
 	} = config;
 
 	// tslint:disable-next-line: no-unused-expression
-	cleanOutDir && await del(join(path, '*'));
+	cleanOutDir && await del(join(outDir, '*'));
 
 	const inputOptions = createInputOptions(entry, externals);
 	const outputOptionsList = createOutputOptions({
 		fileName,
 		libraryName,
-		outPath: path,
+		outDir,
 		sourceMap
 	});
 

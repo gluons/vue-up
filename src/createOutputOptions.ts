@@ -23,13 +23,13 @@ export interface OutputOptions {
 	 */
 	libraryName: string;
 	/**
-	 * Output path.
+	 * Output directory.
 	 *
 	 * @type {string}
 	 * @default 'dist'
 	 * @memberof OutputOptions
 	 */
-	outPath: string;
+	outDir: string;
 	/**
 	 * Use source map?
 	 *
@@ -48,13 +48,13 @@ export interface OutputOptions {
  * @returns {RollupOutputOptions[]}
  */
 export default function createOutputOptions(options: OutputOptions): RollupOutputOptions[] {
-	let { fileName, libraryName, outPath, sourceMap } = options;
+	let { fileName, libraryName, outDir, sourceMap } = options;
 
 	const formats: ModuleFormat[] = ['cjs', 'es', 'iife'];
 
 	return formats.map(format => ({
 		format,
-		file: join(outPath, `${fileName}.${format}.js`),
+		file: join(outDir, `${fileName}.${format}.js`),
 		name: libraryName,
 		sourcemap: sourceMap,
 		globals: {
