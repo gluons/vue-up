@@ -1,5 +1,6 @@
 import del from 'del';
 import nvl from 'nvl';
+import ora from 'ora';
 import { join } from 'path';
 import { ModuleFormat, rollup, RollupSingleFileBuild } from 'rollup';
 
@@ -54,6 +55,9 @@ export default async function bundle(config: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
+	const spinner = ora();
+	spinner.start('Bundling...');
+
 	// tslint:disable-next-line: no-unused-expression
 	cleanOutDir && await del(join(outDir, '*'));
 
@@ -83,4 +87,6 @@ export default async function bundle(config: Configuration): Promise<void> {
 
 	await Promise.all(unminList.map(writer(unminBundle)));
 	await Promise.all(minList.map(writer(minBundle)));
+
+	spinner.succeed('Bundle succeed.');
 }
