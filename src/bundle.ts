@@ -90,3 +90,5 @@ export default async function bundle(config: Configuration): Promise<void> {
 
 	spinner.succeed('Bundle succeed.');
 }
+
+module.exports = exports.default;
