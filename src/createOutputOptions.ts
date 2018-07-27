@@ -16,6 +16,20 @@ export interface OutputOptions {
 	 */
 	fileName: string;
 	/**
+	 * File name suffix.
+	 *
+	 * @type {string}
+	 * @memberof OutputOptions
+	 */
+	suffix: string;
+	/**
+	 * Bundle output format.
+	 *
+	 * @type {ModuleFormat}
+	 * @memberof OutputOptions
+	 */
+	format: ModuleFormat;
+	/**
 	 * Library's name.
 	 *
 	 * @type {string}
@@ -45,20 +59,27 @@ export interface OutputOptions {
  *
  * @export
  * @param {OutputOptions} options Options.
- * @returns {RollupOutputOptions[]}
+ * @returns {RollupOutputOptions}
  */
-export default function createOutputOptions(options: OutputOptions): RollupOutputOptions[] {
-	let { fileName, libraryName, outDir, sourceMap } = options;
-
-	const formats: ModuleFormat[] = ['cjs', 'es', 'iife'];
-
-	return formats.map(format => ({
+export default function createOutputOptions(options: OutputOptions): RollupOutputOptions {
+	let {
+		fileName,
+		suffix,
 		format,
-		file: join(outDir, `${fileName}.${format}.js`),
+		libraryName,
+		outDir,
+		sourceMap
+	} = options;
+
+	const outputOptions: RollupOutputOptions = {
+		format,
+		file: join(outDir, `${fileName}.${suffix}.js`),
 		name: libraryName,
 		sourcemap: sourceMap,
 		globals: {
 			vue: 'Vue'
 		}
-	} as RollupOutputOptions));
+	};
+
+	return outputOptions;
 }

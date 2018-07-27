@@ -18,6 +18,7 @@ import progress from './lib/rollup/progressPlugin';
  */
 export default function createInputOptions(
 	entry: string,
+	minimize: boolean,
 	externals: ExternalOption = ['vue']
 ): RollupFileOptions {
 	const inputOptions: RollupFileOptions = {
@@ -30,10 +31,16 @@ export default function createInputOptions(
 			vue({
 				css: false
 			}),
-			minify({
-				mangle: false,
-				comments: false
-			}),
+			...(
+				minimize ?
+				[
+					minify({
+						mangle: false,
+						comments: false
+					})
+				] :
+				[]
+			),
 			progress()
 		],
 		external: externals,
