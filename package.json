@@ -2,7 +2,8 @@
   "name": "@gluons/vue-up",
   "version": "0.0.1",
   "description": "A Vue.js library bundler.",
-  "main": "index.js",
+  "main": "./dist/bundle.js",
+  "typings": "./dist/bundle.d.ts",
   "publishConfig": {
     "access": "public"
   },
