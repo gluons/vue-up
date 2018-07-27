@@ -1,4 +1,4 @@
-import nvl from './nvl';
+import nvl from 'nvl';
 
 import defaultConfig from '../lib/defaultConfig';
 import Configuration from '../types/Configuration';
