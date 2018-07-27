@@ -11,7 +11,7 @@ export default function progressPlugin(): Plugin {
 		},
 		buildEnd(err) {
 			if (err) {
-				spinner.fail(err.toString());
+				spinner.fail('Bundle fail.');
 			} else {
 				spinner.succeed('Bundle succeed.');
 			}
