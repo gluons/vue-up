@@ -11,9 +11,6 @@ bundle({
 	libraryName: 'Hello',
 	fileName: 'hello-plugin'
 })
-	.then(() => {
-		console.log('Build success.');
-	})
 	.catch(err => {
 		console.error(err);
 	});

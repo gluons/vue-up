@@ -5,6 +5,8 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import ts from 'rollup-plugin-typescript2';
 import VuePlugin from 'rollup-plugin-vue';
 
+import progress from './lib/rollup/progressPlugin';
+
 /**
  * Create Rollup's input options.
  *
@@ -27,7 +29,8 @@ export default function createInputOptions(
 			minify({
 				mangle: false,
 				comments: false
-			})
+			}),
+			progress()
 		],
 		external: externals,
 		inlineDynamicImports: false

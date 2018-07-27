@@ -54,6 +54,7 @@
   "dependencies": {
     "del": "^3.0.0",
     "node-sass": "^4.9.0",
+    "ora": "^3.0.0",
     "postcss": "^7.0.0",
     "pug": "^2.0.3",
     "rollup": "^0.63.0",
