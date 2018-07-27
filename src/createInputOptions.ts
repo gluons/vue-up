@@ -1,9 +1,10 @@
 import { ExternalOption, RollupFileOptions } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
+import css from 'rollup-plugin-css-only';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import ts from 'rollup-plugin-typescript2';
-import VuePlugin from 'rollup-plugin-vue';
+import vue from 'rollup-plugin-vue';
 
 import progress from './lib/rollup/progressPlugin';
 
@@ -25,7 +26,10 @@ export default function createInputOptions(
 			nodeResolve(),
 			commonjs(),
 			ts(),
-			VuePlugin(),
+			css(),
+			vue({
+				css: false
+			}),
 			minify({
 				mangle: false,
 				comments: false
