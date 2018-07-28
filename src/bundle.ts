@@ -1,8 +1,9 @@
+import chalkAnimation from 'chalk-animation';
 import del from 'del';
 import nvl from 'nvl';
-import ora from 'ora';
 import { join } from 'path';
 import { ModuleFormat, rollup, RollupSingleFileBuild } from 'rollup';
+import { Signale } from 'signale';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
@@ -35,6 +36,11 @@ const minList: FormatList[] = [
 	}
 ];
 
+const rainbow = chalkAnimation.rainbow('Bundling...').stop();
+const interactive = new Signale({
+	interactive: true
+});
+
 /**
  * Bundle Vue library.
  *
@@ -55,40 +61,47 @@ export default async function bundle(config: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
-	const spinner = ora();
-	spinner.start('Bundling...');
+	const awaitId = setInterval(() => {
+		interactive.await(rainbow.frame().substring(11));
+	}, 50);
 
-	// tslint:disable-next-line: no-unused-expression
-	cleanOutDir && await del(join(outDir, '*'));
+	try {
+		// tslint:disable-next-line: no-unused-expression
+		cleanOutDir && await del(join(outDir, '*'));
 
-	const unminInputOptions = createInputOptions(entry, false, externals);
-	const minInputOptions = createInputOptions(entry, true, externals);
+		const unminInputOptions = createInputOptions(entry, false, externals);
+		const minInputOptions = createInputOptions(entry, true, externals);
 
-	const unminBundle = await rollup(unminInputOptions);
-	const minBundle = await rollup(minInputOptions);
+		const unminBundle = await rollup(unminInputOptions);
+		const minBundle = await rollup(minInputOptions);
 
-	const writer = (bundle: RollupSingleFileBuild) => {
-		return formatInfo => {
-			let { format, suffix } = formatInfo;
-			suffix = nvl(suffix, format);
+		const writer = (bundle: RollupSingleFileBuild) => {
+			return formatInfo => {
+				let { format, suffix } = formatInfo;
+				suffix = nvl(suffix, format);
 
-			const outputOptions = createOutputOptions({
-				fileName,
-				suffix,
-				format,
-				libraryName,
-				outDir,
-				sourceMap
-			});
+				const outputOptions = createOutputOptions({
+					fileName,
+					suffix,
+					format,
+					libraryName,
+					outDir,
+					sourceMap
+				});
 
-			return bundle.write(outputOptions);
+				return bundle.write(outputOptions);
+			};
 		};
-	};
 
-	await Promise.all(unminList.map(writer(unminBundle)));
-	await Promise.all(minList.map(writer(minBundle)));
+		await Promise.all(unminList.map(writer(unminBundle)));
+		await Promise.all(minList.map(writer(minBundle)));
 
-	spinner.succeed('Bundle succeed.');
+		interactive.success('Bundle succeed.');
+	} catch (err) {
+		interactive.error(err);
+	} finally {
+		clearInterval(awaitId);
+	}
 }
 
 module.exports = exports.default;
