@@ -72,8 +72,10 @@ export default async function bundle(config: Configuration): Promise<void> {
 		const unminInputOptions = createInputOptions(entry, false, externals);
 		const minInputOptions = createInputOptions(entry, true, externals);
 
-		const unminBundle = await rollup(unminInputOptions);
-		const minBundle = await rollup(minInputOptions);
+		const [unminBundle, minBundle] = await Promise.all([
+			rollup(unminInputOptions),
+			rollup(minInputOptions)
+		]);
 
 		const writer = (bundle: RollupSingleFileBuild) => {
 			return formatInfo => {
@@ -93,8 +95,10 @@ export default async function bundle(config: Configuration): Promise<void> {
 			};
 		};
 
-		await Promise.all(unminList.map(writer(unminBundle)));
-		await Promise.all(minList.map(writer(minBundle)));
+		await Promise.all([
+			...unminList.map(writer(unminBundle)),
+			...minList.map(writer(minBundle))
+		]);
 
 		interactive.success('Bundle succeed.');
 	} catch (err) {
