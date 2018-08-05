@@ -45,7 +45,7 @@ const interactive = new Signale({
  * Bundle Vue library.
  *
  * @export
- * @param {Configuration} options Options.
+ * @param {Configuration} options Options
  * @returns
  */
 export default async function bundle(config: Configuration): Promise<void> {

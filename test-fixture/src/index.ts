@@ -2,6 +2,8 @@ import Vue, { VueConstructor } from 'vue';
 
 import Hello from './components/Hello.vue';
 
+import './main.css';
+
 function install(vue: VueConstructor<Vue>) {
 	vue.component('Hello', Hello);
 }

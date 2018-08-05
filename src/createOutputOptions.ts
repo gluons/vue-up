@@ -58,7 +58,7 @@ export interface OutputOptions {
  * Create Rollup's output options.
  *
  * @export
- * @param {OutputOptions} options Options.
+ * @param {OutputOptions} options Options
  * @returns {RollupOutputOptions}
  */
 export default function createOutputOptions(options: OutputOptions): RollupOutputOptions {
