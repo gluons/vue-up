@@ -12,7 +12,7 @@
     "build": "tsc -p .",
     "watch": "tsc -p . -w",
     "pretest": "yarn build && ts-node ./scripts/run.ts",
-    "test": "jest"
+    "test": "jest -c jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -32,23 +32,6 @@
     "url": "https://github.com/gluons/vue-up/issues"
   },
   "homepage": "https://github.com/gluons/vue-up",
-  "jest": {
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json",
-      "node"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.jest.json"
-      }
-    }
-  },
   "peerDependencies": {
     "vue": "2"
   },
