@@ -7,13 +7,11 @@ import { rollup, RollupFileOptions, RollupSingleFileBuild } from 'rollup';
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
 import { FormatInfo, minifiedFormats, unminifiedFormats } from './lib/formats';
-import LoadingIndicator from './lib/LoadingIndicator';
 import Configuration, { ExternalOption } from './types/Configuration';
 import fulfilConfig from './utils/fulfilConfig';
+import logError from './utils/logError';
 
 export { ExternalOption };
-
-const loading = new LoadingIndicator();
 
 /**
  * Bundle Vue library.
@@ -42,8 +40,6 @@ export default async function bundle(config: Configuration): Promise<void> {
 			R.merge({ entry, fileName, externals })
 		)
 	);
-
-	loading.start();
 
 	try {
 		cleanOutDir && await del(join(outDir, '*'));
@@ -78,12 +74,8 @@ export default async function bundle(config: Configuration): Promise<void> {
 			...unminifiedFormats.map(writer(unminBundle)),
 			...minifiedFormats.map(writer(minBundle))
 		]);
-
-		loading.success('Bundle succeed.');
 	} catch (err) {
-		loading.error(err);
-	} finally {
-		loading.clear();
+		logError(err);
 	}
 }
 
