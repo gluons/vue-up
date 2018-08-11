@@ -8,6 +8,44 @@ import ts from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
 
 /**
+ * Options of `createInputOptions`.
+ *
+ * @export
+ * @interface InputOptions
+ */
+export interface InputOptions {
+	/**
+	 * Bundle's entry point
+	 *
+	 * @type {string}
+	 * @memberof InputOptions
+	 */
+	entry: string;
+	/**
+	 * Minimize bundle?
+	 *
+	 * @type {boolean}
+	 * @memberof InputOptions
+	 */
+	minimize: boolean;
+	/**
+	 * Bundle file's name (Don't need extension. Just file's name)
+	 *
+	 * @type {string}
+	 * @memberof InputOptions
+	 */
+	fileName: string;
+	/**
+	 * External dependencies (Rollup's `external`)
+	 *
+	 * @type {ExternalOption}
+	 * @default ['vue']
+	 * @memberof InputOptions
+	 */
+	externals: ExternalOption;
+}
+
+/**
  * Create Rollup's input options.
  *
  * @export
@@ -16,11 +54,10 @@ import vue from 'rollup-plugin-vue';
  * @param {ExternalOption} [externals=['vue']] External dependencies. (Rollup's `external`)
  * @returns {RollupFileOptions}
  */
-export default function createInputOptions(
-	entry: string,
-	minimize: boolean,
-	externals: ExternalOption = ['vue']
-): RollupFileOptions {
+export default function createInputOptions(options: InputOptions): RollupFileOptions {
+	const { entry, minimize, fileName, externals } = options;
+
+	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
 	const inputOptions: RollupFileOptions = {
 		input: entry,
 		plugins: [
@@ -28,6 +65,7 @@ export default function createInputOptions(
 			commonjs(),
 			ts(),
 			postcss({
+				fileName: cssFileName,
 				plugins: (minimize ? [cssnano({ preset: 'default' })] : [])
 			}),
 			vue({

@@ -66,11 +66,20 @@ export default async function bundle(config: Configuration): Promise<void> {
 	}, 50);
 
 	try {
-		// tslint:disable-next-line: no-unused-expression
 		cleanOutDir && await del(join(outDir, '*'));
 
-		const unminInputOptions = createInputOptions(entry, false, externals);
-		const minInputOptions = createInputOptions(entry, true, externals);
+		const unminInputOptions = createInputOptions({
+			entry,
+			minimize: false,
+			fileName,
+			externals
+		});
+		const minInputOptions = createInputOptions({
+			entry,
+			minimize: true,
+			fileName,
+			externals
+		});
 
 		const [unminBundle, minBundle] = await Promise.all([
 			rollup(unminInputOptions),
