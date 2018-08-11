@@ -1,6 +1,9 @@
+import { PartialDefaults } from 'moren';
 import { join } from 'path';
 
-const defaultConfig = {
+import Configuration from '../types/Configuration';
+
+const defaultConfig: PartialDefaults<Configuration> = {
 	outDir() {
 		return join(process.cwd(), 'dist');
 	},

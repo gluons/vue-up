@@ -3129,7 +3129,7 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moren@^1.0.0:
+moren@^1.0.0, moren@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/moren/-/moren-1.1.0.tgz#fe670edfabb3dde0ff50b8351020380f13ff78f8"
   dependencies:

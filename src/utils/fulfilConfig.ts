@@ -1,4 +1,4 @@
-import nvl from 'nvl';
+import moren from 'moren';
 
 import defaultConfig from '../lib/defaultConfig';
 import Configuration from '../types/Configuration';
@@ -11,15 +11,5 @@ import Configuration from '../types/Configuration';
  * @returns {Configuration}
  */
 export default function fulfilConfig(config: Configuration): Configuration {
-	Object.keys(defaultConfig).forEach(configName => {
-		const defaultConfigValue = defaultConfig[configName];
-
-		if (typeof defaultConfigValue === 'function') {
-			config[configName] = nvl(config[configName], defaultConfigValue(config));
-		} else {
-			config[configName] = nvl(config[configName], defaultConfigValue);
-		}
-	});
-
-	return config;
+	return moren(config, defaultConfig);
 }
