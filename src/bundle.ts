@@ -1,7 +1,8 @@
 import del from 'del';
 import nvl from 'nvl';
 import { join } from 'path';
-import { rollup, RollupSingleFileBuild } from 'rollup';
+import R from 'ramda';
+import { rollup, RollupFileOptions, RollupSingleFileBuild } from 'rollup';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
@@ -34,23 +35,21 @@ export default async function bundle(config: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
+	const createInputOptionsInner: (minimize: boolean) => RollupFileOptions = R.pipe(
+		R.assoc('minimize', R.__, {}),
+		R.compose(
+			createInputOptions,
+			R.merge({ entry, fileName, externals })
+		)
+	);
+
 	loading.start();
 
 	try {
 		cleanOutDir && await del(join(outDir, '*'));
 
-		const unminInputOptions = createInputOptions({
-			entry,
-			minimize: false,
-			fileName,
-			externals
-		});
-		const minInputOptions = createInputOptions({
-			entry,
-			minimize: true,
-			fileName,
-			externals
-		});
+		const unminInputOptions = createInputOptionsInner(false);
+		const minInputOptions = createInputOptionsInner(true);
 
 		const [unminBundle, minBundle] = await Promise.all([
 			rollup(unminInputOptions),
