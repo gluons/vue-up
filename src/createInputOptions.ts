@@ -1,4 +1,5 @@
 import postcss from '@gluons/rollup-plugin-postcss-only';
+import cssnano from 'cssnano';
 import { ExternalOption, RollupFileOptions } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
@@ -26,7 +27,9 @@ export default function createInputOptions(
 			nodeResolve(),
 			commonjs(),
 			ts(),
-			postcss(),
+			postcss({
+				plugins: (minimize ? [cssnano({ preset: 'default' })] : [])
+			}),
 			vue({
 				css: false
 			}),

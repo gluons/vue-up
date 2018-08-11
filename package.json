@@ -38,6 +38,7 @@
   "dependencies": {
     "@gluons/rollup-plugin-postcss-only": "^0.1.0",
     "chalk-animation": "^1.6.0",
+    "cssnano": "^4.0.5",
     "del": "^3.0.0",
     "node-sass": "^4.9.3",
     "nvl": "^1.1.1",
