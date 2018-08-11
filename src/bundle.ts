@@ -1,12 +1,11 @@
-import chalkAnimation from 'chalk-animation';
 import del from 'del';
 import nvl from 'nvl';
 import { join } from 'path';
 import { ModuleFormat, rollup, RollupSingleFileBuild } from 'rollup';
-import { Signale } from 'signale';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
+import LoadingIndicator from './lib/LoadingIndicator';
 import Configuration, { ExternalOption } from './types/Configuration';
 import fulfilConfig from './utils/fulfilConfig';
 
@@ -36,10 +35,7 @@ const minList: FormatList[] = [
 	}
 ];
 
-const rainbow = chalkAnimation.rainbow('Bundling...').stop();
-const interactive = new Signale({
-	interactive: true
-});
+const loading = new LoadingIndicator();
 
 /**
  * Bundle Vue library.
@@ -61,9 +57,7 @@ export default async function bundle(config: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
-	const awaitId = setInterval(() => {
-		interactive.await(rainbow.frame().substring(11));
-	}, 50);
+	loading.start();
 
 	try {
 		cleanOutDir && await del(join(outDir, '*'));
@@ -109,11 +103,11 @@ export default async function bundle(config: Configuration): Promise<void> {
 			...minList.map(writer(minBundle))
 		]);
 
-		interactive.success('Bundle succeed.');
+		loading.success('Bundle succeed.');
 	} catch (err) {
-		interactive.error(err);
+		loading.error(err);
 	} finally {
-		clearInterval(awaitId);
+		loading.clear();
 	}
 }
 
