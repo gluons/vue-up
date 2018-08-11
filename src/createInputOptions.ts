@@ -82,8 +82,7 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 				[]
 			)
 		],
-		external: externals,
-		inlineDynamicImports: false
+		external: externals
 	};
 
 	return inputOptions;
