@@ -13,7 +13,7 @@ export default class LoadingIndicator {
 		});
 	}
 
-	start(interval = 50) {
+	start(interval = 15) {
 		const rainbow = this._rainbow;
 		const interactive = this._interactive;
 
