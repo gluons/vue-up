@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .vue,.js .vuepress/",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
