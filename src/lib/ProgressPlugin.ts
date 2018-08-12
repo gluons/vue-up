@@ -13,7 +13,7 @@ export default function ProgressPlugin(): Plugin {
 	return {
 		name: 'vue-up-progress-plugin',
 		buildStart() {
-			logUpdate(cyan(`${start} ${badge('pending', 'bgCyan', 'black')} Start bundling.`));
+			logUpdate(cyan(`${start} ${badge('pending', 'bgCyan')} Start bundling.`));
 		},
 		transform(_, id) {
 			let finalId: string = trim(id);
@@ -22,10 +22,10 @@ export default function ProgressPlugin(): Plugin {
 				finalId = relative(process.cwd(), finalId);
 			} catch (_) {}
 
-			logUpdate(yellow(`${progress} ${badge('in progress', 'bgYellow', 'black')} Bundling "${finalId}" ...`));
+			logUpdate(yellow(`${progress} ${badge('in progress', 'bgYellow')} Bundling "${finalId}" ...`));
 		},
 		generateBundle() {
-			logUpdate(green(`${success} ${badge('success', 'bgGreen', 'black')} Bundle succeed.`));
+			logUpdate(green(`${success} ${badge('success', 'bgGreen')} Bundle succeed.`));
 		}
 	};
 }

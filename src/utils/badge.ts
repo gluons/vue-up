@@ -1,7 +1,9 @@
 import chalk from 'chalk';
 
-export default function badge(text: string, bgColor: string, color = 'white'): string {
+const textColor = 'black';
+
+export default function badge(text: string, bgColor: string): string {
 	text = text.toUpperCase();
 
-	return chalk`{${color}.${bgColor}  ${text} }`;
+	return chalk`{${textColor}.${bgColor}  ${text} }`;
 }
