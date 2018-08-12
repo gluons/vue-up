@@ -44,6 +44,8 @@
     "cssnano": "^4.0.5",
     "del": "^3.0.0",
     "figures": "^2.0.0",
+    "joycon": "^1.1.0",
+    "joycon-yaml-loader": "^1.0.0",
     "log-update": "^2.3.0",
     "moren": "^1.1.0",
     "node-sass": "^4.9.3",
@@ -77,5 +79,8 @@
     "typescript": "~3.0.0",
     "vue": "^2.5.17",
     "vue-class-component": "^6.2.0"
+  },
+  "optionalDependencies": {
+    "joycon-ts-loader": "^1.0.1"
   }
 }

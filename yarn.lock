@@ -2632,6 +2632,26 @@ jest@^23.5.0:
     import-local "^1.0.0"
     jest-cli "^23.5.0"
 
+joycon-ts-loader@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/joycon-ts-loader/-/joycon-ts-loader-1.0.1.tgz#fc95ea51fb81f21a5f400cd579c4c4ee0daedf45"
+  dependencies:
+    pify "^3.0.0"
+    strip-bom "^3.0.0"
+
+joycon-yaml-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/joycon-yaml-loader/-/joycon-yaml-loader-1.0.0.tgz#df0d94669b9a13ea4531c2d5c04786d3a3855c77"
+  dependencies:
+    js-yaml "^3.11.0"
+    pify "^3.0.0"
+
+joycon@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/joycon/-/joycon-1.1.0.tgz#3cad13e84d755445385b15202360a30fd9203e26"
+  dependencies:
+    json5 "^1.0.1"
+
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.8.tgz#57a9b130888f956834aa40c5b165ba59c758f033"
@@ -2648,7 +2668,7 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
 
-js-yaml@^3.7.0, js-yaml@^3.9.0:
+js-yaml@^3.11.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   dependencies:
@@ -2724,6 +2744,12 @@ json-stringify-safe@~5.0.1:
 json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+
+json5@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
+  dependencies:
+    minimist "^1.2.0"
 
 jsonfile@^4.0.0:
   version "4.0.0"

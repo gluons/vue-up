@@ -9,6 +9,7 @@ import createOutputOptions from './createOutputOptions';
 import { FormatInfo, minifiedFormats, unminifiedFormats } from './lib/formats';
 import Configuration, { ExternalOption } from './types/Configuration';
 import fulfilConfig from './utils/fulfilConfig';
+import loadConfig from './utils/loadConfig';
 import logError from './utils/logError';
 
 export { ExternalOption };
@@ -20,7 +21,8 @@ export { ExternalOption };
  * @param {Configuration} options Options
  * @returns
  */
-export default async function bundle(config: Configuration): Promise<void> {
+export default async function bundle(config?: Configuration): Promise<void> {
+	config = await loadConfig(config);
 	config = fulfilConfig(config);
 
 	const {
