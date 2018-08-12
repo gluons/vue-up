@@ -13,21 +13,21 @@ export default interface Configuration {
 	 * Bundle's entry point.
 	 *
 	 * @type {string}
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	entry: string;
 	/**
 	 * Library's name.
 	 *
 	 * @type {string}
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	libraryName: string;
 	/**
 	 * Bundle file's name. (Don't need extension. Just file's name.)
 	 *
 	 * @type {string}
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	fileName: string;
 	/**
@@ -35,7 +35,7 @@ export default interface Configuration {
 	 *
 	 * @type {string}
 	 * @default 'dist'
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	outDir?: string;
 	/**
@@ -51,7 +51,7 @@ export default interface Configuration {
 	 *
 	 * @type {boolean}
 	 * @default true
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	sourceMap?: boolean;
 	/**
@@ -59,7 +59,7 @@ export default interface Configuration {
 	 *
 	 * @type {ExternalOption}
 	 * @default ['vue']
-	 * @memberof PackOptions
+	 * @memberof Configuration
 	 */
 	externals?: ExternalOption;
 }
