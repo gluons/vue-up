@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "lts/*"
+before_deploy: yarn build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: .vuepress/dist
+  on:
+    branch: docs
