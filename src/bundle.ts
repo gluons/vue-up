@@ -22,7 +22,7 @@ export { Configuration, ExternalOption };
  * @returns
  */
 export default async function bundle(config?: Configuration): Promise<void> {
-	config = await loadConfig(config);
+	config = nvl(config, await loadConfig(config));
 	config = fulfilConfig(config);
 
 	const {
