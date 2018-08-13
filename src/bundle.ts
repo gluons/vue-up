@@ -12,7 +12,7 @@ import fulfilConfig from './utils/fulfilConfig';
 import loadConfig from './utils/loadConfig';
 import logError from './utils/logError';
 
-export { ExternalOption };
+export { Configuration, ExternalOption };
 
 /**
  * Bundle Vue library.
