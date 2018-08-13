@@ -4,8 +4,7 @@ import { Configuration } from '../dist/bundle';
 
 const config: Configuration = {
 	entry: resolve(__dirname, './src/index.ts'),
-	libraryName: 'Hello',
-	fileName: 'hello-plugin'
+	libraryName: 'HelloPlugin'
 };
 
 export default config;

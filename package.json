@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@gluons/rollup-plugin-postcss-only": "^0.1.0",
+    "@sindresorhus/slugify": "^0.3.0",
     "chalk": "^2.4.1",
     "cssnano": "^4.0.5",
     "del": "^3.0.0",

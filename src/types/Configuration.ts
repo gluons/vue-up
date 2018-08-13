@@ -29,7 +29,7 @@ export default interface Configuration {
 	 * @type {string}
 	 * @memberof Configuration
 	 */
-	fileName: string;
+	fileName?: string;
 	/**
 	 * Output directory.
 	 *
