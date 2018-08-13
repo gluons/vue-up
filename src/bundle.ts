@@ -80,5 +80,3 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		logError(err);
 	}
 }
-
-module.exports = exports.default;
