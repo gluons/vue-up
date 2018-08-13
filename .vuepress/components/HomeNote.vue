@@ -1,6 +1,6 @@
 <template lang="pug">
 	p
-		| Vue Pack is created to suit my personal requirements.
+		| Vue Up is created to suit my personal requirements.
 		br
 		| But you can also use it if it meets your requirements. 🙂
 </template>
