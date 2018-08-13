@@ -15,13 +15,13 @@ Bundle's entry point.
 
 Library's name.
 
-## `fileName` <Badge text="Required" type="warn"/>
+## `fileName`
 **Type:** `string`
 
-Bundle file's name.
+Name of output bundled files (without extension).
 
 ::: tip
-Don't need extension. Just file's name.
+If it isn't provided, `vue-up` will generate file name from [`libraryName`](#libraryname) by [slugify](https://github.com/sindresorhus/slugify).
 :::
 
 ## `outDir`
