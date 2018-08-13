@@ -63,3 +63,13 @@ export default interface Configuration {
 	 */
 	externals?: ExternalOption;
 }
+
+export const ConfigKeys = [
+	'entry',
+	'libraryName',
+	'fileName',
+	'outDir',
+	'cleanOutDir',
+	'sourceMap',
+	'externals'
+];

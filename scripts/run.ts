@@ -1,12 +1,18 @@
+import spawn from 'cross-spawn';
 import { resolve } from 'path';
 
-import bundle from '../dist/bundle';
-
+const cliPath = resolve(__dirname, '../dist/cli.js');
 const fixturePath = resolve(__dirname, '../test-fixture');
 
-process.chdir(fixturePath);
+const child = spawn('node', [cliPath], {
+	cwd: fixturePath,
+	stdio: 'inherit'
+});
 
-bundle()
-	.catch(err => {
-		console.error(err);
-	});
+child.on('close', code => {
+	console.log(`Run CLI success. Exit with ${code}.`);
+});
+child.on('error', err => {
+	console.log(`End with error.`);
+	console.error(err);
+});
