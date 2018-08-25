@@ -1,18 +1,11 @@
-import R from 'ramda';
 import { Arguments, Argv } from 'yargs';
 
 import bundle from '../bundle';
 import defaultConfig from '../lib/defaultConfig';
+import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
 import purifyConfig from '../utils/purifyConfig';
 import resolvePath from '../utils/resolvePath';
-
-/**
- * Check whether given object is non-empty string.
- *
- * @param {any} obj An object
- */
-const isNonEmptyStr = R.allPass([R.compose(R.not, R.either(R.isNil, R.isEmpty)), R.is(String)]);
 
 export const command = ['*', 'build'];
 
@@ -20,11 +13,6 @@ export const describe = 'Bundle Vue.js library';
 
 export function builder(yargs: Argv): Argv {
 	return yargs
-		.option('config', {
-			type: 'string',
-			desc: 'Path to config file.',
-			alias: 'c'
-		})
 		.option('entry', {
 			type: 'string',
 			desc: "Bundle's entry point.",

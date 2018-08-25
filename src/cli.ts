@@ -10,6 +10,12 @@ yargs
 	.alias('help', 'h')
 	.alias('version', 'v')
 	.commandDir(resolve(__dirname, './cli'))
+	.option('config', {
+		type: 'string',
+		global: true,
+		desc: 'Path to config file.',
+		alias: 'c'
+	})
 	.argv;
 
 // tslint:enable:no-unused-expression

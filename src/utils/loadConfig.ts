@@ -3,20 +3,11 @@ import JoyConYAMLLoader from 'joycon-yaml-loader';
 import nvl from 'nvl';
 import { homedir } from 'os';
 import { basename, dirname, resolve } from 'path';
-import R from 'ramda';
 
 import Configuration from '../types/Configuration';
+import ifMerge from '../utils/ifMerge';
 
 const NAME = 'vue-up';
-
-/**
- * If first object is not nil, it'll merge with second object. (First over second)
- * Otherwise, it'll return second object.
- *
- * @param {any} first First object.
- * @param {any} second Second object.
- */
-const ifMerge = R.ifElse(R.isNil, R.nthArg(1), R.flip(R.merge(R.__)));
 
 export default async function loadConfig(
 	privilegeConfig?: Partial<Configuration>,

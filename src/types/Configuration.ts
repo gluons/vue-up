@@ -1,5 +1,7 @@
 import { ExternalOption } from 'rollup';
 
+import DevOptions from './DevOptions';
+
 export { ExternalOption };
 
 /**
@@ -62,6 +64,13 @@ export default interface Configuration {
 	 * @memberof Configuration
 	 */
 	externals?: ExternalOption;
+	/**
+	 * Options for development server.
+	 *
+	 * @type {DevOptions}
+	 * @memberof Configuration
+	 */
+	dev?: DevOptions;
 }
 
 export const ConfigKeys = [
@@ -71,5 +80,6 @@ export const ConfigKeys = [
 	'outDir',
 	'cleanOutDir',
 	'sourceMap',
-	'externals'
+	'externals',
+	'dev'
 ];
