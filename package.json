@@ -11,7 +11,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=6.11.5"
   },
   "scripts": {
     "prebuild": "rimraf dist/*",
