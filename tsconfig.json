@@ -10,7 +10,8 @@
 		"experimentalDecorators": true,
 		"outDir": "dist",
 		"declaration": true,
-		"noUnusedLocals": true
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
 	},
 	"include": [
 		"src"
