@@ -2,7 +2,7 @@
   "name": "vue-up-docs",
   "version": "0.0.0",
   "description": "A documentation website for vue-up.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build",
