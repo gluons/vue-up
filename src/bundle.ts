@@ -22,7 +22,7 @@ export { Configuration, ExternalOption };
  * @returns
  */
 export default async function bundle(config?: Configuration): Promise<void> {
-	config = nvl(config, await loadConfig(config));
+	config = nvl(config, await loadConfig());
 	config = fulfilConfig(config);
 
 	const {
@@ -35,7 +35,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
-	const createInputOptionsInner: (minimize: boolean) => RollupFileOptions = R.pipe(
+	const createInputOptionsOuter: (minimize: boolean) => RollupFileOptions = R.pipe(
 		R.assoc('minimize', R.__, {}),
 		R.compose(
 			createInputOptions,
@@ -46,8 +46,8 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	try {
 		cleanOutDir && await del(join(outDir, '*'));
 
-		const unminInputOptions = createInputOptionsInner(false);
-		const minInputOptions = createInputOptionsInner(true);
+		const unminInputOptions = createInputOptionsOuter(false);
+		const minInputOptions = createInputOptionsOuter(true);
 
 		const [unminBundle, minBundle] = await Promise.all([
 			rollup(unminInputOptions),
