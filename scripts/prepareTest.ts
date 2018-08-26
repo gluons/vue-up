@@ -7,7 +7,7 @@ import badge from '../src/utils/badge';
 const cliPath = resolve(__dirname, '../dist/cli.js');
 const fixturePath = resolve(__dirname, '../test/fixture/');
 
-const child = spawn('node', [cliPath], {
+const child = spawn('node', [cliPath, '-l', 'HelloPlugin'], {
 	cwd: fixturePath,
 	stdio: 'inherit'
 });

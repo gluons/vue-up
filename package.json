@@ -17,7 +17,7 @@
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
-    "pretest": "yarn build && ts-node ./scripts/run.ts",
+    "pretest": "yarn build && ts-node ./scripts/prepareTest.ts",
     "test": "yarn lint && jest -c jest.config.json"
   },
   "repository": {
