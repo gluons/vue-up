@@ -33,27 +33,26 @@ export function builder(yargs: Argv): Argv {
 			type: 'string',
 			desc: 'Output directory.',
 			alias: 'o',
-			default: defaultConfig.outDir,
-			defaultDescription: './dist',
+			defaultDescription: JSON.stringify('./dist'),
 			normalize: true
 		})
 		.option('cleanOutDir', {
 			type: 'boolean',
 			desc: 'Clean output directory before bundling.',
 			alias: 'd',
-			default: defaultConfig.cleanOutDir
+			defaultDescription: JSON.stringify(defaultConfig.cleanOutDir)
 		})
 		.option('sourceMap', {
 			type: 'boolean',
 			desc: 'Generate source map?',
 			alias: 's',
-			default: defaultConfig.sourceMap
+			defaultDescription: JSON.stringify(defaultConfig.sourceMap)
 		})
 		.option('externals', {
 			type: 'array',
 			desc: `External dependencies. (Rollup's "external")`,
 			alias: 'e',
-			default: defaultConfig.externals
+			defaultDescription: JSON.stringify(defaultConfig.externals)
 		})
 	;
 }
@@ -62,7 +61,10 @@ export async function handler(argv: Arguments): Promise<void> {
 	const configPath: string = isNonEmptyStr(argv.config) ? argv.config : null;
 	const cliConfig = purifyConfig(argv);
 	const config = await loadConfig(cliConfig, configPath);
-	config.outDir = resolveCwd(config.outDir); // Resolve path before using
+
+	if (config.outDir) {
+		config.outDir = resolveCwd(config.outDir); // Resolve path before using
+	}
 
 	await bundle(config);
 }
