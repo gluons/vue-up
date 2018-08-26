@@ -7,6 +7,7 @@ import { rollup, RollupFileOptions, RollupSingleFileBuild } from 'rollup';
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
 import { FormatInfo, minifiedFormats, unminifiedFormats } from './lib/formats';
+import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
 import fulfilConfig from './utils/fulfilConfig';
@@ -80,6 +81,8 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			...minifiedFormats.map(writer(minBundle))
 		]);
 	} catch (err) {
+		pluginState.hasError = true;
+
 		logError(err);
 	}
 }

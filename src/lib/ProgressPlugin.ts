@@ -15,6 +15,10 @@ const { cyan, green, yellow } = chalk;
  */
 const trim = (id: string) => id.replace(/\0/g, '').trim();
 
+export const pluginState = {
+	hasError: false
+};
+
 /**
  * A Rollup plugin for displaying the progress of Rollup.
  *
@@ -25,6 +29,8 @@ export default function ProgressPlugin(): Plugin {
 	return {
 		name: 'vue-up-progress-plugin',
 		buildStart() {
+			pluginState.hasError = false; // Reset state
+
 			logUpdate(cyan(`${start} ${badge('pending', 'cyan')} Start bundling.`));
 		},
 		transform(_, id) {
@@ -37,7 +43,10 @@ export default function ProgressPlugin(): Plugin {
 			logUpdate(yellow(`${progress} ${badge('in progress', 'yellow')} Bundling "${finalId}" ...`));
 		},
 		generateBundle() {
-			logUpdate(green(`${success} ${badge('success', 'green')} Bundle succeed.`));
+			// Don't display success message when error found.
+			if (!pluginState.hasError) {
+				logUpdate(green(`${success} ${badge('success', 'green')} Bundle succeed.`));
+			}
 		}
 	};
 }
