@@ -5,7 +5,7 @@ import defaultConfig from '../lib/defaultConfig';
 import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
 import purifyConfig from '../utils/purifyConfig';
-import resolvePath from '../utils/resolvePath';
+import resolveCwd from '../utils/resolveCwd';
 
 export const command = ['*', 'build'];
 
@@ -60,7 +60,7 @@ export async function handler(argv: Arguments): Promise<void> {
 	const configPath: string = isNonEmptyStr(argv.config) ? argv.config : null;
 	const cliConfig = purifyConfig(argv);
 	const config = await loadConfig(cliConfig, configPath);
-	config.outDir = resolvePath(config.outDir); // Resolve path before using
+	config.outDir = resolveCwd(config.outDir); // Resolve path before using
 
 	await bundle(config);
 }

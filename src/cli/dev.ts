@@ -6,7 +6,7 @@ import DevOptions from '../types/DevOptions';
 import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
 import purifyDevOptions from '../utils/purifyDevOptions';
-import resolvePath from '../utils/resolvePath';
+import resolveCwd from '../utils/resolveCwd';
 
 export const command = 'dev';
 
@@ -45,7 +45,7 @@ export async function handler(argv: Arguments): Promise<void> {
 	const cliDevOptions = purifyDevOptions(argv);
 	const configDevOptions = nvl(config.dev, {}) as DevOptions;
 
-	const entry = resolvePath(nvl(cliDevOptions.entry, configDevOptions.entry));
+	const entry = resolveCwd(nvl(cliDevOptions.entry, configDevOptions.entry));
 	const port = nvl(cliDevOptions.port, configDevOptions.port);
 	const open = !nvl<boolean>(argv.noOpen, !configDevOptions.open);
 	const htmlTitle = nvl(cliDevOptions.htmlTitle, configDevOptions.htmlTitle);

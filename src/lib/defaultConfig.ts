@@ -2,14 +2,14 @@ import slugify from '@sindresorhus/slugify';
 import { PartialDefaults } from 'moren';
 
 import Configuration from '../types/Configuration';
-import resolvePath from '../utils/resolvePath';
+import resolveCwd from '../utils/resolveCwd';
 
 const defaultConfig: PartialDefaults<Configuration> = {
 	fileName(config) {
 		return slugify(config.libraryName);
 	},
 	outDir() {
-		return resolvePath('dist');
+		return resolveCwd('dist');
 	},
 	cleanOutDir: true,
 	sourceMap: true,
