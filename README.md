@@ -17,7 +17,7 @@ footer: Made with ❤️ by Saran Tanpituckpong
 ## Installation
 
 ::: warning Compatibility
-Vue Pack requires [Node.js](https://nodejs.org/) >= 6.11.5.
+Vue Up requires [Node.js](https://nodejs.org/) >= 6.11.5.
 :::
 
 **Install via [npm](https://www.npmjs.com/):**
