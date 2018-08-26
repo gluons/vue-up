@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/gluons/vue-up/issues"
   },
-  "homepage": "https://github.com/gluons/vue-up",
+  "homepage": "https://gluons.github.io/vue-up/",
   "peerDependencies": {
     "vue": "2"
   },
