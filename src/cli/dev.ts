@@ -17,7 +17,8 @@ export function builder(yargs: Argv): Argv {
 		.option('entry', {
 			type: 'string',
 			desc: 'Path to entry file for development.',
-			alias: 'i'
+			alias: 'i',
+			normalize: true
 		})
 		.option('port', {
 			type: 'number',

@@ -16,7 +16,8 @@ export function builder(yargs: Argv): Argv {
 		.option('entry', {
 			type: 'string',
 			desc: "Bundle's entry point.",
-			alias: 'i'
+			alias: 'i',
+			normalize: true
 		})
 		.option('libraryName', {
 			type: 'string',
@@ -33,7 +34,8 @@ export function builder(yargs: Argv): Argv {
 			desc: 'Output directory.',
 			alias: 'o',
 			default: defaultConfig.outDir,
-			defaultDescription: './dist'
+			defaultDescription: './dist',
+			normalize: true
 		})
 		.option('cleanOutDir', {
 			type: 'boolean',
