@@ -15,10 +15,10 @@
   },
   "scripts": {
     "prebuild": "rimraf dist/*",
-    "build": "tsc -p .",
-    "watch": "tsc -p . -w",
+    "build": "tsc",
+    "lint": "tslint -p .",
     "pretest": "yarn build && ts-node ./scripts/run.ts",
-    "test": "jest -c jest.config.json"
+    "test": "yarn lint && jest -c jest.config.json"
   },
   "repository": {
     "type": "git",

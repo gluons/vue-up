@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 
-import HelloPlugin from '../test-fixture/dist/hello-plugin.cjs';
+import HelloPlugin from './fixture/dist/hello-plugin.cjs';
 
 const localVue = createLocalVue();
 localVue.use(HelloPlugin);
