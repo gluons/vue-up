@@ -2,6 +2,7 @@ import serve, { DefaultOptions, Options } from '@gluons/vue-pack-dev';
 import nvl from 'nvl';
 import { Arguments, Argv } from 'yargs';
 
+import verifyDevOptions from '../lib/verifyDevOptions';
 import DevOptions from '../types/DevOptions';
 import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
@@ -58,6 +59,8 @@ export async function handler(argv: Arguments): Promise<void> {
 		htmlTitle,
 		webpackBarName: 'Vue Up Dev'
 	};
+
+	verifyDevOptions(options);
 
 	await serve(options);
 }

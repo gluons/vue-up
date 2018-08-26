@@ -8,5 +8,10 @@ import { resolve } from 'path';
  * @returns {string}
  */
 export default function resolveCwd(path: string): string {
+	// Don't resolve empty path
+	if (!path) {
+		return path;
+	}
+
 	return resolve(process.cwd(), path);
 }

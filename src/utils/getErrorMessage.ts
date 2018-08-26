@@ -2,10 +2,11 @@
  * Get error message from error instance.
  *
  * @export
- * @param {any} err An error.
+ * @template T Error type
+ * @param {T} err An error
  * @returns {string}
  */
-export default function getErrorMessage(err: any): string {
+export default function getErrorMessage<T extends Error>(err: T): string {
 	if (err.message) {
 		return err.message;
 	} else {

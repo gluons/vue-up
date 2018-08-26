@@ -7,6 +7,7 @@ import { rollup, RollupFileOptions, RollupSingleFileBuild } from 'rollup';
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
 import { FormatInfo, minifiedFormats, unminifiedFormats } from './lib/formats';
+import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
 import fulfilConfig from './utils/fulfilConfig';
 import loadConfig from './utils/loadConfig';
@@ -24,6 +25,8 @@ export { Configuration, ExternalOption };
 export default async function bundle(config?: Configuration): Promise<void> {
 	config = nvl(config, await loadConfig());
 	config = fulfilConfig(config);
+
+	verifyConfig(config);
 
 	const {
 		entry,

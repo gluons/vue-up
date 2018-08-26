@@ -9,6 +9,11 @@ import resolveCwd from '../utils/resolveCwd';
  */
 const defaultConfig: PartialDefaults<Configuration> = {
 	fileName(config) {
+		// Prevent error in `slugify` when no `libraryName` given
+		if (!config.libraryName) {
+			return '';
+		}
+
 		return slugify(config.libraryName);
 	},
 	outDir() {

@@ -11,9 +11,10 @@ const { red } = chalk;
  * Log error to terminal.
  *
  * @export
- * @param {any} err An error
+ * @template T Error type
+ * @param {T} err An error
  */
-export default function logError(err: any): void {
+export default function logError<T extends Error>(err: T): void {
 	logUpdate.clear();
 	logUpdate.stderr(red(`${error} ${badge('error', 'red')} ${getErrorMessage(err)}`));
 	logUpdate.stderr.done();
