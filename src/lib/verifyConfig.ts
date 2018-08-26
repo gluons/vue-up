@@ -13,6 +13,16 @@ export default function verifyConfig(config: Configuration): void {
 	try {
 		ow(config.entry, ow.string.nonEmpty.label('entry'));
 		ow(config.libraryName, ow.string.nonEmpty.label('libraryName'));
+
+		if (!config.fileName) {
+			throw new TypeError(
+				[
+					'`fileName` is empty.',
+					"Maybe can't slugify your `libraryName`.",
+					'Please check your `libraryName` or provide `fileName` directly.'
+				].join(' ')
+			);
+		}
 	} catch (err) {
 		logError(err);
 		process.exit(1);

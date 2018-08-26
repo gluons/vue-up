@@ -16,7 +16,7 @@ const { red } = chalk;
  */
 export default function logError<T extends Error>(err: T): void {
 	logUpdate.clear();
-	logUpdate.stderr(red(`${error} ${badge('error', 'red')} ${getErrorMessage(err)}`));
+	logUpdate.stderr(`${error} ${badge('error', 'red')} ${red(getErrorMessage(err))}`);
 	logUpdate.stderr.done();
 	process.exitCode = 1;
 }
