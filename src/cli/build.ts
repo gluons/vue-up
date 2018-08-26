@@ -38,7 +38,7 @@ export function builder(yargs: Argv): Argv {
 		.option('cleanOutDir', {
 			type: 'boolean',
 			desc: 'Clean output directory before bundling.',
-			alias: 'clean',
+			alias: 'd',
 			default: defaultConfig.cleanOutDir
 		})
 		.option('sourceMap', {
