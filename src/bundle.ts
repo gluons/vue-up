@@ -48,7 +48,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	);
 
 	try {
-		cleanOutDir && await del(join(outDir, '*'));
+		cleanOutDir && await del(join(outDir, '*'), { dot: true });
 
 		const unminInputOptions = createInputOptionsOuter(false);
 		const minInputOptions = createInputOptionsOuter(true);
