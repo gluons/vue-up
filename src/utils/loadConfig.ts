@@ -9,6 +9,15 @@ import ifMerge from '../utils/ifMerge';
 
 const NAME = 'vue-up';
 
+/**
+ * Load configuration from config file.
+ * (If `privilegeConfig` is given, it'll override the loaded config.)
+ *
+ * @export
+ * @param {Partial<Configuration>} [privilegeConfig] High priority config to override config from config file
+ * @param {string} [configPath] Path to config file
+ * @returns {Promise<Configuration>}
+ */
 export default async function loadConfig(
 	privilegeConfig?: Partial<Configuration>,
 	configPath?: string

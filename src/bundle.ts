@@ -18,7 +18,7 @@ export { Configuration, ExternalOption };
  * Bundle Vue library.
  *
  * @export
- * @param {Configuration} options Options
+ * @param {Configuration} config Configuration
  * @returns
  */
 export default async function bundle(config?: Configuration): Promise<void> {

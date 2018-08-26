@@ -4,6 +4,9 @@ import { PartialDefaults } from 'moren';
 import Configuration from '../types/Configuration';
 import resolveCwd from '../utils/resolveCwd';
 
+/**
+ * Default configuration.
+ */
 const defaultConfig: PartialDefaults<Configuration> = {
 	fileName(config) {
 		return slugify(config.libraryName);
