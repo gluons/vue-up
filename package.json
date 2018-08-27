@@ -4,9 +4,11 @@
   "description": "Bundle Vue.js library via Rollup.",
   "main": "./dist/bundle.js",
   "typings": "./dist/bundle.d.ts",
-  "bin": {
-    "vue-up": "./dist/cli.js"
-  },
+  "bin": "./bin/vue-up",
+  "files": [
+    "bin",
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -14,6 +16,7 @@
     "node": ">=6.11.5"
   },
   "scripts": {
+    "prepublishOnly": "yarn build",
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
