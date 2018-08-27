@@ -14,6 +14,10 @@ module.exports = {
 			{
 				text: 'Configuration',
 				link: '/configuration/'
+			},
+			{
+				text: 'Development Options',
+				link: '/dev-options/'
 			}
 		]
 	}
