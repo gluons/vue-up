@@ -2,11 +2,11 @@ import serve, { DefaultOptions, Options } from '@gluons/vue-pack-dev';
 import nvl from 'nvl';
 import { Arguments, Argv } from 'yargs';
 
+import purifyDevOptions from '../lib/purifyDevOptions';
 import verifyDevOptions from '../lib/verifyDevOptions';
 import DevOptions from '../types/DevOptions';
 import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
-import purifyDevOptions from '../utils/purifyDevOptions';
 import resolveCwd from '../utils/resolveCwd';
 
 export const command = 'dev';
@@ -48,12 +48,14 @@ export async function handler(argv: Arguments): Promise<void> {
 	const configDevOptions = nvl(config.dev, {}) as DevOptions;
 
 	const entry = resolveCwd(nvl(cliDevOptions.entry, configDevOptions.entry));
+	const alias = config.alias;
 	const port = nvl(cliDevOptions.port, configDevOptions.port);
 	const open = !nvl<boolean>(argv.noOpen, !configDevOptions.open);
 	const htmlTitle = nvl(cliDevOptions.htmlTitle, configDevOptions.htmlTitle);
 
 	const options: Options = {
 		entry,
+		alias,
 		port,
 		open,
 		htmlTitle,

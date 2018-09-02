@@ -4,9 +4,11 @@ import { ExternalOption, RollupFileOptions } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import resolveAlias from 'rollup-plugin-resolve-alias';
 import ts from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
 
+import constructAlias from './lib/constructAlias';
 import progress from './lib/ProgressPlugin';
 
 /**
@@ -31,12 +33,19 @@ export interface InputOptions {
 	 */
 	minimize: boolean;
 	/**
-	 * Bundle file's name (Don't need extension. Just file's name)
+	 * Name of output bundled files (without extension)
 	 *
 	 * @type {string}
 	 * @memberof InputOptions
 	 */
 	fileName: string;
+	/**
+	 * Alias to path
+	 *
+	 * @type {Record<string, string>}
+	 * @memberof InputOptions
+	 */
+	alias: Record<string, string>;
 	/**
 	 * External dependencies (Rollup's `external`)
 	 *
@@ -57,14 +66,24 @@ export interface InputOptions {
  * @returns {RollupFileOptions}
  */
 export default function createInputOptions(options: InputOptions): RollupFileOptions {
-	const { entry, minimize, fileName, externals } = options;
+	const {
+		entry,
+		minimize,
+		fileName,
+		alias,
+		externals
+	} = options;
 
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
+	const constructedAlias = constructAlias(alias);
 	const inputOptions: RollupFileOptions = {
 		input: entry,
 		plugins: [
 			nodeResolve(),
 			commonjs(),
+			resolveAlias({
+				aliases: constructedAlias
+			}),
 			ts(),
 			postcss({
 				fileName: cssFileName,

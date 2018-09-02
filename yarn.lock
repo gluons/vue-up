@@ -6111,6 +6111,10 @@ rollup-plugin-node-resolve@^3.3.0:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
+rollup-plugin-resolve-alias@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-resolve-alias/-/rollup-plugin-resolve-alias-0.2.0.tgz#269c11e1ee09abb51ba618f5456a536f86502aaa"
+
 rollup-plugin-typescript2@^0.16.1:
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.16.1.tgz#72e1f8a2e450550eabdc3d474e735feae322b474"

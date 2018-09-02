@@ -36,6 +36,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		libraryName,
 		outDir,
 		cleanOutDir,
+		alias,
 		sourceMap
 	} = config;
 
@@ -43,7 +44,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		R.assoc('minimize', R.__, {}),
 		R.compose(
 			createInputOptions,
-			R.merge({ entry, fileName, externals })
+			R.merge({ entry, fileName, alias, externals })
 		)
 	);
 

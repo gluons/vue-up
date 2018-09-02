@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-import Configuration, { ConfigKeys } from '../types/Configuration';
+import Configuration from '../types/Configuration';
 
 /**
  * Purify impure config from CLI.
@@ -10,7 +10,18 @@ import Configuration, { ConfigKeys } from '../types/Configuration';
  * @returns {Configuration}
  */
 export default function purifyConfig(impureConfig: Record<string, any>): Configuration {
-	const config: Configuration = R.pick(ConfigKeys, impureConfig);
+	const config: Configuration = R.pick(
+		[
+			'entry',
+			'libraryName',
+			'fileName',
+			'outDir',
+			'cleanOutDir',
+			'sourceMap',
+			'externals'
+		],
+		impureConfig
+	);
 
 	return config;
 }

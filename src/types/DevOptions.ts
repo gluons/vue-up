@@ -37,10 +37,3 @@ export default interface DevOptions {
 	 */
 	htmlTitle?: string;
 }
-
-export const DevOptionsKeys = [
-	'entry',
-	'port',
-	'open',
-	'htmlTitle'
-];

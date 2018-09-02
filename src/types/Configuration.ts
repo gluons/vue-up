@@ -12,28 +12,28 @@ export { ExternalOption };
  */
 export default interface Configuration {
 	/**
-	 * Bundle's entry point.
+	 * Bundle's entry point
 	 *
 	 * @type {string}
 	 * @memberof Configuration
 	 */
 	entry: string;
 	/**
-	 * Library's name.
+	 * Library's name
 	 *
 	 * @type {string}
 	 * @memberof Configuration
 	 */
 	libraryName: string;
 	/**
-	 * Bundle file's name. (Don't need extension. Just file's name.)
+	 * Name of output bundled files (without extension)
 	 *
 	 * @type {string}
 	 * @memberof Configuration
 	 */
 	fileName?: string;
 	/**
-	 * Output directory.
+	 * Output directory
 	 *
 	 * @type {string}
 	 * @default 'dist'
@@ -41,13 +41,20 @@ export default interface Configuration {
 	 */
 	outDir?: string;
 	/**
-	 * Clean output directory before bundling.
+	 * Clean output directory before bundling
 	 *
 	 * @type {boolean}
 	 * @default true
 	 * @memberof Configuration
 	 */
 	cleanOutDir?: boolean;
+	/**
+	 * Alias to path
+	 *
+	 * @type {Record<string, string>}
+	 * @memberof Configuration
+	 */
+	alias?: Record<string, string>;
 	/**
 	 * Use source map?
 	 *
@@ -57,7 +64,7 @@ export default interface Configuration {
 	 */
 	sourceMap?: boolean;
 	/**
-	 * External dependencies. (Rollup's `external`)
+	 * External dependencies (Rollup's `external`)
 	 *
 	 * @type {ExternalOption}
 	 * @default ['vue']
@@ -65,21 +72,10 @@ export default interface Configuration {
 	 */
 	externals?: ExternalOption;
 	/**
-	 * Options for development server.
+	 * Options for development server
 	 *
 	 * @type {DevOptions}
 	 * @memberof Configuration
 	 */
 	dev?: DevOptions;
 }
-
-export const ConfigKeys = [
-	'entry',
-	'libraryName',
-	'fileName',
-	'outDir',
-	'cleanOutDir',
-	'sourceMap',
-	'externals',
-	'dev'
-];

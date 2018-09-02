@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-import DevOptions, { DevOptionsKeys } from '../types/DevOptions';
+import DevOptions from '../types/DevOptions';
 
 /**
  * Purify impure development options from CLI.
@@ -10,7 +10,14 @@ import DevOptions, { DevOptionsKeys } from '../types/DevOptions';
  * @returns {DevOptions}
  */
 export default function purifyDevOptions(impureDevOptions: Record<string, any>): DevOptions {
-	const devOptions: DevOptions = R.pick(DevOptionsKeys, impureDevOptions);
+	const devOptions: DevOptions = R.pick(
+		[
+			'entry',
+			'port',
+			'htmlTitle'
+		],
+		impureDevOptions
+	);
 
 	return devOptions;
 }

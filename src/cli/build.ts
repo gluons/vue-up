@@ -2,9 +2,9 @@ import { Arguments, Argv } from 'yargs';
 
 import bundle from '../bundle';
 import defaultConfig from '../lib/defaultConfig';
+import purifyConfig from '../lib/purifyConfig';
 import isNonEmptyStr from '../utils/isNonEmptyStr';
 import loadConfig from '../utils/loadConfig';
-import purifyConfig from '../utils/purifyConfig';
 import resolveCwd from '../utils/resolveCwd';
 
 export const command = ['*', 'build'];
