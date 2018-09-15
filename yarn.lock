@@ -4295,6 +4295,10 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
+lodash.merge@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+
 lodash.mergewith@^4.6.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
@@ -4674,6 +4678,13 @@ moren@^1.0.0, moren@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/moren/-/moren-1.1.0.tgz#fe670edfabb3dde0ff50b8351020380f13ff78f8"
   dependencies:
+    nvl "^1.1.1"
+
+moren@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/moren/-/moren-2.0.0.tgz#78d5e0d5bd3633befed25bd88d736baa68ca6f5b"
+  dependencies:
+    lodash.merge "^4.6.1"
     nvl "^1.1.1"
 
 move-concurrently@^1.0.1:

@@ -55,7 +55,7 @@
     "joycon": "^2.0.0",
     "joycon-yaml-loader": "^2.0.1",
     "log-update": "^2.3.0",
-    "moren": "^1.1.0",
+    "moren": "^2.0.0",
     "node-sass": "^4.9.3",
     "nvl": "^1.1.1",
     "ow": "^0.6.0",
