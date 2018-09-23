@@ -3887,12 +3887,11 @@ jest@^23.5.0:
     import-local "^1.0.0"
     jest-cli "^23.6.0"
 
-joycon-ts-loader@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/joycon-ts-loader/-/joycon-ts-loader-2.0.0.tgz#c45ae77849f403716f51dc403b1fc29cc06428d9"
+joycon-ts-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/joycon-ts-loader/-/joycon-ts-loader-3.0.0.tgz#73a66cbe84c74d8a29e0d8dd400f9f4cf660ebd6"
   dependencies:
-    pify "^4.0.0"
-    strip-bom "^3.0.0"
+    ts-node "^7.0.1"
 
 joycon-yaml-loader@^2.0.1:
   version "2.0.1"
