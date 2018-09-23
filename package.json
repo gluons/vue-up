@@ -95,6 +95,6 @@
     "vue-class-component": "^6.2.0"
   },
   "optionalDependencies": {
-    "joycon-ts-loader": "^2.0.0"
+    "joycon-ts-loader": "^3.0.0"
   }
 }
