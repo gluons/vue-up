@@ -16,12 +16,12 @@
     "node": ">=6.11.5"
   },
   "scripts": {
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "npm run build",
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
-    "pretest": "yarn build && ts-node ./scripts/prepareTest.ts",
-    "test": "yarn lint && jest -c jest.config.json"
+    "pretest": "npm run build && ts-node ./scripts/prepareTest.ts",
+    "test": "npm run lint && jest -c jest.config.json"
   },
   "repository": {
     "type": "git",
