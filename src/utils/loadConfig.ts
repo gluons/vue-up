@@ -19,7 +19,7 @@ const NAME = 'vue-up';
  * @returns {Promise<Configuration>}
  */
 export default async function loadConfig(
-	privilegeConfig?: Partial<Configuration>,
+	privilegeConfig?: Partial<Configuration> | Configuration,
 	configPath?: string
 ): Promise<Configuration> {
 	const joycon = new JoyCon({
@@ -55,7 +55,7 @@ export default async function loadConfig(
 		config = nvl(data, {});
 	}
 
-	config = ifMerge(privilegeConfig, config);
+	config = ifMerge(privilegeConfig, config) as Configuration;
 
 	return config;
 }

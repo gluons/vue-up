@@ -1,4 +1,4 @@
-import R from 'ramda';
+import pick from 'lodash.pick';
 
 import DevOptions from '../types/DevOptions';
 
@@ -10,13 +10,13 @@ import DevOptions from '../types/DevOptions';
  * @returns {DevOptions}
  */
 export default function purifyDevOptions(impureDevOptions: Record<string, any>): DevOptions {
-	const devOptions: DevOptions = R.pick(
+	const devOptions: DevOptions = pick(
+		impureDevOptions,
 		[
 			'entry',
 			'port',
 			'htmlTitle'
-		],
-		impureDevOptions
+		]
 	);
 
 	return devOptions;

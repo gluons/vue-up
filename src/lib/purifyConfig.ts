@@ -1,4 +1,4 @@
-import R from 'ramda';
+import pick from 'lodash.pick';
 
 import Configuration from '../types/Configuration';
 
@@ -10,7 +10,8 @@ import Configuration from '../types/Configuration';
  * @returns {Configuration}
  */
 export default function purifyConfig(impureConfig: Record<string, any>): Configuration {
-	const config: Configuration = R.pick(
+	const config: Configuration = pick(
+		impureConfig,
 		[
 			'entry',
 			'libraryName',
@@ -19,8 +20,7 @@ export default function purifyConfig(impureConfig: Record<string, any>): Configu
 			'cleanOutDir',
 			'sourceMap',
 			'externals'
-		],
-		impureConfig
+		]
 	);
 
 	return config;
