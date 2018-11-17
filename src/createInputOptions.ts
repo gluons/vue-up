@@ -51,7 +51,6 @@ export interface InputOptions {
 	 * External dependencies (Rollup's `external`)
 	 *
 	 * @type {ExternalOption}
-	 * @default ['vue']
 	 * @memberof InputOptions
 	 */
 	externals: ExternalOption;

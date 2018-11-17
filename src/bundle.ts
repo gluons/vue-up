@@ -38,8 +38,9 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		alias,
 		sourceMap
 	} = config;
+	const { module: moduleExternals, web: webExternals } = externals;
 
-	const newInputOptions = (minimize: boolean, isWeb = false) => {
+	const newInputOptions = (externals: ExternalOption, minimize: boolean, isWeb = false) => {
 		return createInputOptions({
 			entry,
 			minimize,
@@ -53,9 +54,9 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	try {
 		cleanOutDir && await del(join(outDir, '*'), { dot: true });
 
-		const moduleInputOptions = newInputOptions(false);
-		const webUnminInputOptions = newInputOptions(false, true);
-		const webMinInputOptions = newInputOptions(true, true);
+		const moduleInputOptions = newInputOptions(moduleExternals, false);
+		const webUnminInputOptions = newInputOptions(webExternals, false, true);
+		const webMinInputOptions = newInputOptions(webExternals, true, true);
 
 		const [moduleBundle, webUnminBundle, webMinBundle] = await Promise.all([
 			rollup(moduleInputOptions),

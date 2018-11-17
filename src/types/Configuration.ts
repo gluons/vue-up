@@ -66,11 +66,14 @@ export default interface Configuration {
 	/**
 	 * External dependencies (Rollup's `external`)
 	 *
-	 * @type {ExternalOption}
-	 * @default ['vue']
+	 * @type {{ module?: ExternalOption, web?: ExternalOption }}
+	 * @default { module: nodeExternals(), web: ['vue'] }
 	 * @memberof Configuration
 	 */
-	externals?: ExternalOption;
+	externals?: {
+		module?: ExternalOption,
+		web?: ExternalOption
+	};
 	/**
 	 * Options for development server
 	 *

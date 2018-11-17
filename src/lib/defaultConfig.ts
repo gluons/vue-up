@@ -3,6 +3,7 @@ import { PartialDefaults } from 'moren';
 
 import Configuration from '../types/Configuration';
 import resolveCwd from '../utils/resolveCwd';
+import nodeExternals from './nodeExternals';
 
 /**
  * Default configuration.
@@ -21,7 +22,10 @@ const defaultConfig: PartialDefaults<Configuration> = {
 	},
 	cleanOutDir: true,
 	sourceMap: true,
-	externals: ['vue']
+	externals: {
+		module: nodeExternals(),
+		web: ['vue']
+	}
 };
 
 export default defaultConfig;
