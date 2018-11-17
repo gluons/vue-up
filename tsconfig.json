@@ -8,6 +8,7 @@
 		"target": "es5",
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
+		"importHelpers": true,
 		"outDir": "dist",
 		"declaration": true,
 		"noUnusedLocals": true,
