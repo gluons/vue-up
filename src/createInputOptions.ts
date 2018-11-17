@@ -4,6 +4,7 @@ import { ExternalOption, RollupFileOptions } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import replace from 'rollup-plugin-replace';
 import resolveAlias from 'rollup-plugin-resolve-alias';
 import ts from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
@@ -54,6 +55,13 @@ export interface InputOptions {
 	 * @memberof InputOptions
 	 */
 	externals: ExternalOption;
+	/**
+	 * Replace `process.env.NODE_ENV` in final build?
+	 *
+	 * @type {boolean}
+	 * @memberof InputOptions
+	 */
+	replaceNodeEnv: boolean;
 }
 
 /**
@@ -71,7 +79,8 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		minimize,
 		fileName,
 		alias,
-		externals
+		externals,
+		replaceNodeEnv
 	} = options;
 
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
@@ -81,6 +90,15 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		plugins: [
 			nodeResolve(),
 			commonjs(),
+			...(
+				replaceNodeEnv ?
+				[
+					replace({
+						'process.env.NODE_ENV': JSON.stringify('production')
+					})
+				] :
+				[]
+			),
 			resolveAlias({
 				aliases: constructedAlias
 			}),

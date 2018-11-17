@@ -15,36 +15,38 @@ export interface FormatInfo {
 	 */
 	format: ModuleFormat;
 	/**
-	 * Output file suffix
+	 * Minified?
 	 *
-	 * @type {string}
+	 * @type {boolean}
 	 * @memberof FormatInfo
 	 */
-	suffix?: string;
+	min?: boolean;
 }
 
 /**
- * List of unminified output bundle format.
+ * List of module output bundle format.
  */
-export const unminifiedFormats: FormatInfo[] = [
+export const moduleFormats: FormatInfo[] = [
 	{
-		format: 'cjs'
+		format: 'cjs',
+		min: false
 	},
 	{
-		format: 'es'
-	},
-	{
-		format: 'iife',
-		suffix: 'web'
+		format: 'es',
+		min: false
 	}
 ];
 
 /**
- * List of minified output bundle format.
+ * List of web output bundle format.
  */
-export const minifiedFormats: FormatInfo[] = [
+export const webFormats: FormatInfo[] = [
 	{
 		format: 'iife',
-		suffix: 'web.min'
+		min: false
+	},
+	{
+		format: 'iife',
+		min: true
 	}
 ];

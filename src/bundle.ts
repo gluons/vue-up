@@ -5,7 +5,7 @@ import { rollup, RollupSingleFileBuild } from 'rollup';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
-import { FormatInfo, minifiedFormats, unminifiedFormats } from './lib/formats';
+import { FormatInfo, moduleFormats, webFormats } from './lib/formats';
 import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
@@ -39,31 +39,35 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		sourceMap
 	} = config;
 
-	const createInputOptionsOuter = (minimize: boolean) => {
+	const newInputOptions = (minimize: boolean, isWeb = false) => {
 		return createInputOptions({
 			entry,
 			minimize,
 			fileName,
 			alias,
-			externals
+			externals,
+			replaceNodeEnv: isWeb
 		});
 	};
 
 	try {
 		cleanOutDir && await del(join(outDir, '*'), { dot: true });
 
-		const unminInputOptions = createInputOptionsOuter(false);
-		const minInputOptions = createInputOptionsOuter(true);
+		const moduleInputOptions = newInputOptions(false);
+		const webUnminInputOptions = newInputOptions(false, true);
+		const webMinInputOptions = newInputOptions(true, true);
 
-		const [unminBundle, minBundle] = await Promise.all([
-			rollup(unminInputOptions),
-			rollup(minInputOptions)
+		const [moduleBundle, webUnminBundle, webMinBundle] = await Promise.all([
+			rollup(moduleInputOptions),
+			rollup(webUnminInputOptions),
+			rollup(webMinInputOptions)
 		]);
 
 		const writer = (bundle: RollupSingleFileBuild) => {
 			return (formatInfo: FormatInfo) => {
-				let { format, suffix } = formatInfo;
-				suffix = nvl(suffix, format);
+				const { format, min } = formatInfo;
+				const ext = format === 'iife' ? 'web' : format;
+				const suffix = min ? `${ext}.min` : ext;
 
 				const outputOptions = createOutputOptions({
 					fileName,
@@ -78,9 +82,13 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			};
 		};
 
+		const webUnminFormats = webFormats.filter(format => !format.min);
+		const webMinFormats = webFormats.filter(format => format.min);
+
 		await Promise.all([
-			...unminifiedFormats.map(writer(unminBundle)),
-			...minifiedFormats.map(writer(minBundle))
+			...moduleFormats.map(writer(moduleBundle)),
+			...webUnminFormats.map(writer(webUnminBundle)),
+			...webMinFormats.map(writer(webMinBundle))
 		]);
 	} catch (err) {
 		pluginState.hasError = true;
