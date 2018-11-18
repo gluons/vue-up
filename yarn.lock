@@ -1552,6 +1552,11 @@ camelcase@^4.1.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
 
+camelcase@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.0.0.tgz#03295527d58bd3cd4aa75363f35b2e8d97be2f42"
+  integrity sha512-faqwZqnWxbxn+F1d399ygeamQNy3lPp/H9H6rNrqYh4FSVCtcY+3cub1MxA8o9mDd55mM8Aghuu/kuyYA6VTsA==
+
 caniuse-api@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/caniuse-api/-/caniuse-api-3.0.0.tgz#5e4d90e2274961d46291997df599e3ed008ee4c0"
@@ -2335,7 +2340,7 @@ debug@^3.2.5:
   dependencies:
     ms "^2.1.1"
 
-decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
+decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
@@ -6422,6 +6427,15 @@ postcss@^7.0.1, postcss@^7.0.5:
     source-map "^0.6.1"
     supports-color "^5.5.0"
 
+postcss@^7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.6.tgz#6dcaa1e999cdd4a255dcd7d4d9547f4ca010cdc2"
+  integrity sha512-Nq/rNjnHFcKgCDDZYO0lNsl6YWe6U7tTy+ESN+PnLxebL8uBtYX59HZqvrj7YLK5UCyll2hqDsJOo3ndzEW8Ug==
+  dependencies:
+    chalk "^2.4.1"
+    source-map "^0.6.1"
+    supports-color "^5.5.0"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -7117,10 +7131,10 @@ rollup-pluginutils@2.3.3, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.3.3:
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
-rollup@^0.67.1:
-  version "0.67.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.1.tgz#4094110c944d3c9e25b5bf196771b51132ec3adb"
-  integrity sha512-BfwL9pw5VyxrAWx/G1tP8epgG+NH4KcR78aoWacV7+dFp1Mj6ynH8QTIC/lDQ3KlwzDakqZmJQ4LQ7TmLg+pBA==
+rollup@^0.67.3:
+  version "0.67.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.67.3.tgz#55475b1b62c43220c3b4bd7edc5846233932f50b"
+  integrity sha512-TyNQCz97rKuVVbsKUTXfwIjV7UljWyTVd7cTMuE+aqlQ7WJslkYF5QaYGjMLR2BlQtUOO5CAxSVnpQ55iYp5jg==
   dependencies:
     "@types/estree" "0.0.39"
     "@types/node" "*"
@@ -8722,6 +8736,14 @@ yargs-parser@10.x, yargs-parser@^10.1.0:
   dependencies:
     camelcase "^4.1.0"
 
+yargs-parser@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-11.1.0.tgz#0b8104116367bf663089b24e5801438ab50396a3"
+  integrity sha512-lGA5HsbjkpCfekDBHAhgE5OE8xEoqiUDylowr+BvhRCwG1xVYTsd8hx2CYC0NY4k9RIgJeybFTG2EZW4P2aN1w==
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
+
 yargs-parser@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
@@ -8736,7 +8758,7 @@ yargs-parser@^9.0.2:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@12.0.2, yargs@^12.0.1:
+yargs@12.0.2:
   version "12.0.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.2.tgz#fe58234369392af33ecbef53819171eff0f5aadc"
   integrity sha512-e7SkEx6N6SIZ5c5H22RTZae61qtn3PYUE8JYbBFlK9sYmh3DMQ6E5ygtaG/2BW0JZi4WGgTR2IV5ChqlqrDGVQ==
@@ -8771,6 +8793,24 @@ yargs@^11.0.0:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^9.0.2"
+
+yargs@^12.0.4:
+  version "12.0.4"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.4.tgz#5ea307c6f11f11881c3bc375f9c939194e8cf4bc"
+  integrity sha512-f5esswlPO351AnejaO2A1ZZr0zesz19RehQKwiRDqWtrraWrJy16tsUIKgDXFMVytvNOHPVmTiaTh3wO67I0fQ==
+  dependencies:
+    cliui "^4.0.0"
+    decamelize "^1.2.0"
+    find-up "^3.0.0"
+    get-caller-file "^1.0.1"
+    os-locale "^3.0.0"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^2.0.0"
+    which-module "^2.0.0"
+    y18n "^3.2.1 || ^4.0.0"
+    yargs-parser "^11.1.0"
 
 yargs@^7.0.0:
   version "7.1.0"
