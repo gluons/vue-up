@@ -131,14 +131,14 @@
   resolved "https://registry.yarnpkg.com/@comandeer/babel-plugin-banner/-/babel-plugin-banner-4.0.0.tgz#1613f9b37ee075291ecfb73d57193e1e05dc76c3"
   integrity sha512-JhkNsBm8n4Z3rU1Sl2ivPX+Gd3dBcxLUdhLrn3Yok33uBGmoT0wNspXjOgToPxFqDAHHAWj83uj7MSLEJCLpxQ==
 
-"@gluons/rollup-plugin-postcss-only@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@gluons/rollup-plugin-postcss-only/-/rollup-plugin-postcss-only-1.0.0.tgz#962c3d1bb756ef195fd9ad82a36948af9052f613"
-  integrity sha512-3PdPmpjim4cSso+JPsgt3SFhXpFKF5LpqIscBHCAxG7eyGJX5afJtwdww2PEqzjViHoT1gv0Cmne55QQMY7VtQ==
+"@gluons/rollup-plugin-postcss-only@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@gluons/rollup-plugin-postcss-only/-/rollup-plugin-postcss-only-1.0.1.tgz#120ac9389707ed077f07149852de31654a9f4ffa"
+  integrity sha512-IxUWqBadrTy2xJR59hw+2bbwOETRHE0UMnxSLOqtjieNEIqGbcICOTrgWl9TDBA5K67uhffwdgITeL5SJPUTNg==
   dependencies:
     concat-with-sourcemaps "^1.1.0"
     make-dir "^1.3.0"
-    moren "^2.0.0"
+    moren "^2.0.1"
     nvl "^1.1.1"
     pify "^4.0.1"
     postcss-load-config "^2.0.0"
@@ -5286,6 +5286,14 @@ moren@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/moren/-/moren-2.0.0.tgz#78d5e0d5bd3633befed25bd88d736baa68ca6f5b"
   integrity sha512-8FaOgFfMwULUPaqwwvSdGgxzcYB4KGltwgo0KCTaxOtDtsz+EK6kbJCWXyKEBu8v1mEIYtOmkiYvLw9IBns+iw==
+  dependencies:
+    lodash.merge "^4.6.1"
+    nvl "^1.1.1"
+
+moren@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/moren/-/moren-2.0.1.tgz#3fc448551ab7cce7b86e778dd6fa00d6c50df0ba"
+  integrity sha512-uSFNqkmn/ohvMWt2wA9twD1LpYSJoCldPznbRPysW+XPUB01HWEHlzdanEd35VONhTOMPbmVwwDonvzuEBG1xg==
   dependencies:
     lodash.merge "^4.6.1"
     nvl "^1.1.1"
