@@ -15,6 +15,13 @@ export interface FormatInfo {
 	 */
 	format: ModuleFormat;
 	/**
+	 * Output file suffix
+	 *
+	 * @type {string}
+	 * @memberof FormatInfo
+	 */
+	suffix?: string;
+	/**
 	 * Minified?
 	 *
 	 * @type {boolean}
@@ -28,12 +35,20 @@ export interface FormatInfo {
  */
 export const moduleFormats: FormatInfo[] = [
 	{
-		format: 'cjs',
-		min: false
+		format: 'cjs'
 	},
 	{
-		format: 'es',
-		min: false
+		format: 'es'
+	}
+];
+
+/**
+ * List of SSR output bundle format.
+ */
+export const ssrFormats: FormatInfo[] = [
+	{
+		format: 'cjs',
+		suffix: 'ssr'
 	}
 ];
 
@@ -43,10 +58,11 @@ export const moduleFormats: FormatInfo[] = [
 export const webFormats: FormatInfo[] = [
 	{
 		format: 'iife',
-		min: false
+		suffix: 'web'
 	},
 	{
 		format: 'iife',
+		suffix: 'web.min',
 		min: true
 	}
 ];

@@ -34,6 +34,13 @@ export interface InputOptions {
 	 */
 	minimize: boolean;
 	/**
+	 * Enable SSR optimization
+	 *
+	 * @type {boolean}
+	 * @memberof InputOptions
+	 */
+	ssr: boolean;
+	/**
 	 * Name of output bundled files (without extension)
 	 *
 	 * @type {string}
@@ -76,6 +83,7 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 	const {
 		entry,
 		minimize,
+		ssr,
 		fileName,
 		alias,
 		externals,
@@ -101,13 +109,21 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 			resolveAlias({
 				aliases: constructedAlias
 			}),
-			ts(),
+			ts({
+				clean: true
+			}),
 			postcss({
 				fileName: cssFileName,
 				plugins: (minimize ? [cssnano({ preset: 'default' })] : [])
 			}),
 			vue({
-				css: false
+				css: false,
+				template: {
+					compiler: require('vue-template-compiler'),
+					compilerOptions: void 0,
+					isProduction: true,
+					optimizeSSR: ssr
+				}
 			}),
 			...(
 				minimize ?

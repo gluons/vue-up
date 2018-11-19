@@ -5,7 +5,7 @@ import { rollup, RollupSingleFileBuild } from 'rollup';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
-import { FormatInfo, moduleFormats, webFormats } from './lib/formats';
+import { FormatInfo, moduleFormats, ssrFormats, webFormats } from './lib/formats';
 import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
@@ -40,10 +40,16 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	} = config;
 	const { module: moduleExternals, web: webExternals } = externals;
 
-	const newInputOptions = (externals: ExternalOption, minimize: boolean, isWeb = false) => {
+	const newInputOptions = (
+		externals: ExternalOption,
+		isWeb = false,
+		minimize = false,
+		ssr = false
+	) => {
 		return createInputOptions({
 			entry,
 			minimize,
+			ssr,
 			fileName,
 			alias,
 			externals,
@@ -54,25 +60,30 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	try {
 		cleanOutDir && await del(join(outDir, '*'), { dot: true });
 
-		const moduleInputOptions = newInputOptions(moduleExternals, false);
-		const webUnminInputOptions = newInputOptions(webExternals, false, true);
+		const moduleInputOptions = newInputOptions(moduleExternals);
+		const ssrInputOptions = newInputOptions(moduleExternals, false, false, true);
+		const webUnminInputOptions = newInputOptions(webExternals, true);
 		const webMinInputOptions = newInputOptions(webExternals, true, true);
 
-		const [moduleBundle, webUnminBundle, webMinBundle] = await Promise.all([
+		const [
+			moduleBundle,
+			ssrBundle,
+			webUnminBundle,
+			webMinBundle
+		] = await Promise.all([
 			rollup(moduleInputOptions),
+			rollup(ssrInputOptions),
 			rollup(webUnminInputOptions),
 			rollup(webMinInputOptions)
 		]);
 
 		const writer = (bundle: RollupSingleFileBuild) => {
 			return (formatInfo: FormatInfo) => {
-				const { format, min } = formatInfo;
-				const ext = format === 'iife' ? 'web' : format;
-				const suffix = min ? `${ext}.min` : ext;
+				const { format, suffix } = formatInfo;
 
 				const outputOptions = createOutputOptions({
 					fileName,
-					suffix,
+					suffix: nvl(suffix, format),
 					format,
 					libraryName,
 					outDir,
@@ -88,6 +99,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 
 		await Promise.all([
 			...moduleFormats.map(writer(moduleBundle)),
+			...ssrFormats.map(writer(ssrBundle)),
 			...webUnminFormats.map(writer(webUnminBundle)),
 			...webMinFormats.map(writer(webMinBundle))
 		]);
