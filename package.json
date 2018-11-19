@@ -42,7 +42,8 @@
   },
   "homepage": "https://gluons.github.io/vue-up/",
   "peerDependencies": {
-    "vue": "2"
+    "vue": "2",
+    "vue-template-compiler": "2"
   },
   "dependencies": {
     "@gluons/rollup-plugin-postcss-only": "^1.1.0",
@@ -73,7 +74,6 @@
     "rollup-plugin-vue": "^4.3.2",
     "tslib": "^1.9.3",
     "validate-npm-package-name": "^3.0.0",
-    "vue-template-compiler": "^2.5.17",
     "yargs": "^12.0.4"
   },
   "devDependencies": {
@@ -102,7 +102,8 @@
     "typescript": "~3.1.6",
     "vue": "^2.5.17",
     "vue-class-component": "^6.3.2",
-    "vue-server-renderer": "^2.5.17"
+    "vue-server-renderer": "^2.5.17",
+    "vue-template-compiler": "^2.5.17"
   },
   "optionalDependencies": {
     "joycon-ts-loader": "^3.0.0"
