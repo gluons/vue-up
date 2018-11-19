@@ -49,6 +49,15 @@ Output directory.
 
 Clean output directory before bundling.
 
+## `alias`
+**Type:** `{ [key: string]: string }`
+
+Alias to path
+
+::: tip
+`vue-up` provides `@` as alias to your `./src` directory out of the box.
+:::
+
 ## `sourceMap`
 **Type:** `boolean`  
 **Default:** `true`
@@ -56,10 +65,17 @@ Clean output directory before bundling.
 Use source map?
 
 ## `externals`
-**Type:** `ExternalOption`  
-**Default:** `['vue']`
+**Type:** `{ module: ExternalOption, web: ExternalOption }`  
+**Default:** `{ module: nodeExternals(), web: ['vue'] }`
 
 External dependencies. (Rollup's [`external`](https://rollupjs.org/guide/en#external-e-external))
+
+`module` is the external dependencies for CommonJS, ES module and SSR bundles.  
+`web` is the external dependencies for web bundles.
+
+::: tip
+`nodeExternals` is internal `vue-up`'s function that create a function to **exclude** dependencies in `node_modules` directory from bundle.
+:::
 
 ## `dev`
 **Type:** [`DevOptions`](/dev-options/)

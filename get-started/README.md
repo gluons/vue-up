@@ -49,9 +49,10 @@ npm run dev
 yarn dev
 ```
 
-After run `build` it, you will get 4 bundled files at `dist` directory.
+After run `build` it, you will get 5 bundled files at `dist` directory.
 - `[filename].cjs.js` for CommonJS
 - `[filename].es.js` for ES module
+- `[filename].ssr.js` for SSR ([Server-Side Rendering](https://vuejs.org/v2/guide/ssr.html))
 - `[filename].web.js` for non-minified web
 - `[filename].web.min.js` for minified web
 
