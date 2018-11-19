@@ -6,6 +6,7 @@ import { rollup, RollupSingleFileBuild } from 'rollup';
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
 import { FormatInfo, moduleFormats, ssrFormats, webFormats } from './lib/formats';
+import nodeExternals from './lib/nodeExternals';
 import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
@@ -13,7 +14,11 @@ import fulfilConfig from './utils/fulfilConfig';
 import loadConfig from './utils/loadConfig';
 import logError from './utils/logError';
 
-export { Configuration, ExternalOption };
+export {
+	Configuration,
+	ExternalOption,
+	nodeExternals
+};
 
 /**
  * Bundle Vue library.
