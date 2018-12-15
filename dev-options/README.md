@@ -7,7 +7,7 @@ prev: /configuration/
 
 Options for `vue-up`'s development server.
 
-> Using [webpack-serve](https://github.com/webpack-contrib/webpack-serve) under the hood.
+> Using [webpack-dev-server](https://github.com/webpack/webpack-dev-server) under the hood.
 
 ## `entry` <Badge type='warn' text='Required'/>
 **Type:** `string`
