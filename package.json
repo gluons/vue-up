@@ -1,6 +1,6 @@
 {
   "name": "@gluons/vue-up",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bundle Vue.js library via Rollup.",
   "main": "./dist/bundle.js",
   "typings": "./dist/bundle.d.ts",
