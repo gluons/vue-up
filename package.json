@@ -13,7 +13,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=6.11.5"
+    "node": ">=8"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
