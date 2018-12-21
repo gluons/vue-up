@@ -57,7 +57,18 @@ export function builder(yargs: Argv): Argv {
 	;
 }
 
-export async function handler(argv: Arguments): Promise<void> {
+export type BuildArgs = {
+	config?: string;
+	entry?: string;
+	libraryName?: string;
+	fileName?: string;
+	outDir?: string;
+	cleanOutDir?: boolean;
+	sourceMap?: boolean;
+	externals?: string[]
+};
+
+export async function handler(argv: Arguments<BuildArgs>): Promise<void> {
 	const configPath: string = isNonEmptyStr(argv.config) ? argv.config : null;
 	const cliConfig = purifyConfig(argv);
 	const config = await loadConfig(cliConfig, configPath);

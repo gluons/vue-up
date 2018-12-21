@@ -41,7 +41,15 @@ export function builder(yargs: Argv): Argv {
 	;
 }
 
-export async function handler(argv: Arguments): Promise<void> {
+export type DevArgs = {
+	config?: string;
+	entry?: string;
+	port?: number;
+	noOpen?: boolean;
+	htmlTitle?: string;
+};
+
+export async function handler(argv: Arguments<DevArgs>): Promise<void> {
 	const configPath: string = isNonEmptyStr(argv.config) ? argv.config : null;
 	const config = await loadConfig(null, configPath);
 	const cliDevOptions = purifyDevOptions(argv);
