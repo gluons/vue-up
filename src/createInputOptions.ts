@@ -129,8 +129,11 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 				minimize ?
 				[
 					minify({
+						comments: false,
 						mangle: false,
-						comments: false
+						plugins: [
+							'@babel/plugin-syntax-dynamic-import'
+						]
 					})
 				] :
 				[]
