@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/gluons/vue-up",
   "devDependencies": {
-    "eslint": "^5.10.0",
-    "eslint-config-gluons": "^4.0.0",
+    "eslint": "^5.11.1",
+    "eslint-config-gluons": "^4.1.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.11.0",
     "pug": "^2.0.3",
