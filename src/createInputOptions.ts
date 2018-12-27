@@ -1,6 +1,6 @@
 import postcss from '@gluons/rollup-plugin-postcss-only';
 import cssnano from 'cssnano';
-import { ExternalOption, RollupFileOptions } from 'rollup';
+import { ExternalOption, RollupFileOptions, RollupWarning, WarningHandler } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
@@ -146,7 +146,14 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 			),
 			progress()
 		],
-		external: externals
+		external: externals,
+		onwarn: ((warning: RollupWarning, warn) => {
+			if (warning.code === 'THIS_IS_UNDEFINED') {
+				return;
+			}
+
+			warn(warning);
+		}) as WarningHandler
 	};
 
 	return inputOptions;
