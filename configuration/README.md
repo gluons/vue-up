@@ -83,8 +83,17 @@ External dependencies. (Rollup's [`external`](https://rollupjs.org/guide/en#exte
 `web` is the external dependencies for web bundles.
 
 ::: tip
-`nodeExternals` is internal `vue-up`'s function that create a function to **exclude** dependencies in `node_modules` directory from bundle.
+`nodeExternals` is an internal **vue-up**'s function that create a function to **exclude** dependencies in `node_modules` directory from bundle.
 :::
+
+::: tip
+`web` will always include `'vue'` even though you haven't added it.
+:::
+
+## `globals`
+**Type:** `{ [key: string]: string }`
+
+Global variables of external dependencies. (Rollup's [`output.globals`](https://rollupjs.org/guide/en#output-globals-g-globals))
 
 ## `dev`
 **Type:** [`DevOptions`](/dev-options/)
