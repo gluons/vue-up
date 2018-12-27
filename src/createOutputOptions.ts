@@ -52,6 +52,13 @@ export interface OutputOptions {
 	 * @memberof OutputOptions
 	 */
 	sourceMap: boolean;
+	/**
+	 * Global variables of external dependencies
+	 *
+	 * @type {Record<string, string>}
+	 * @memberof OutputOptions
+	 */
+	globals: Record<string, string>;
 }
 
 /**
@@ -68,7 +75,8 @@ export default function createOutputOptions(options: OutputOptions): RollupOutpu
 		format,
 		libraryName,
 		outDir,
-		sourceMap
+		sourceMap,
+		globals
 	} = options;
 
 	const outputOptions: RollupOutputOptions = {
@@ -77,6 +85,7 @@ export default function createOutputOptions(options: OutputOptions): RollupOutpu
 		name: libraryName,
 		sourcemap: sourceMap,
 		globals: {
+			...(typeof globals === 'object' ? globals : {}),
 			vue: 'Vue'
 		}
 	};

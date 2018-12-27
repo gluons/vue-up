@@ -36,14 +36,15 @@ export default async function bundle(config?: Configuration): Promise<void> {
 
 	const {
 		entry,
-		externals,
 		fileName,
 		libraryName,
 		outDir,
 		cleanOutDir,
 		alias,
 		define,
-		sourceMap
+		sourceMap,
+		externals,
+		globals
 	} = config;
 	const { module: moduleExternals, web: webExternals } = externals;
 
@@ -93,7 +94,8 @@ export default async function bundle(config?: Configuration): Promise<void> {
 					format,
 					libraryName,
 					outDir,
-					sourceMap
+					sourceMap,
+					globals
 				});
 
 				return bundle.write(outputOptions);

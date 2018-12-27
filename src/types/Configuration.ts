@@ -82,6 +82,13 @@ export default interface Configuration {
 		web?: ExternalOption
 	};
 	/**
+	 * Global variables of external dependencies (Rollup's `output.globals`)
+	 *
+	 * @type {Record<string, string>}
+	 * @memberof Configuration
+	 */
+	globals?: Record<string, string>;
+	/**
 	 * Options for development server
 	 *
 	 * @type {DevOptions}
