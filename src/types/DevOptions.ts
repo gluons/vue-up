@@ -13,6 +13,13 @@ export default interface DevOptions {
 	 */
 	entry: string;
 	/**
+	 * Define global constants to apply at compile time
+	 *
+	 * @type {Record<string, any>}
+	 * @memberof DevOptions
+	 */
+	define?: Record<string, any>;
+	/**
 	 * Port of development server
 	 *
 	 * @type {number}

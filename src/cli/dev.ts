@@ -57,6 +57,7 @@ export async function handler(argv: Arguments<DevArgs>): Promise<void> {
 
 	const entry = resolveCwd(nvl(cliDevOptions.entry, configDevOptions.entry));
 	const alias = config.alias;
+	const define = configDevOptions.define;
 	const port = nvl(cliDevOptions.port, configDevOptions.port);
 	const open = (typeof argv.noOpen === 'boolean') ? !argv.noOpen : configDevOptions.open;
 	const htmlTitle = nvl(cliDevOptions.htmlTitle, configDevOptions.htmlTitle);
@@ -64,6 +65,10 @@ export async function handler(argv: Arguments<DevArgs>): Promise<void> {
 	const options: Options = {
 		entry,
 		alias,
+		define: {
+			...(typeof define === 'object' ? define : {}),
+			'process.env.NODE_ENV': 'development'
+		},
 		port,
 		open,
 		htmlTitle,
