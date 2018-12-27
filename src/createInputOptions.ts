@@ -94,8 +94,8 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
 	const constructedAlias = constructAlias(alias);
 	const definedConstants = {
-		'process.env.NODE_ENV': JSON.stringify('production'),
-		...(typeof define === 'object' ? stringifyObjectValues(define) : {})
+		...(typeof define === 'object' ? stringifyObjectValues(define) : {}),
+		'process.env.NODE_ENV': JSON.stringify('production')
 	};
 	const inputOptions: RollupFileOptions = {
 		input: entry,
