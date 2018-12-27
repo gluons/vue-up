@@ -14,6 +14,15 @@ Options for `vue-up`'s development server.
 
 Path to entry file for development.
 
+## `define`
+**Type:** `{ [key: string]: any }`
+
+Define global constants to apply at compile time.
+
+::: tip
+`process.env.NODE_ENV` is automatically defined to `development`.
+:::
+
 ## `port`
 **Type:** `number`  
 **Default:** `8080`

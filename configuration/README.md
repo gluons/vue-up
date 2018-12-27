@@ -52,10 +52,19 @@ Clean output directory before bundling.
 ## `alias`
 **Type:** `{ [key: string]: string }`
 
-Alias to path
+Alias to path.
 
 ::: tip
 `vue-up` provides `@` as alias to your `./src` directory out of the box.
+:::
+
+## `define`
+**Type:** `{ [key: string]: any }`
+
+Define global constants to apply at compile time.
+
+::: tip
+`process.env.NODE_ENV` is automatically defined to `production`.
 :::
 
 ## `sourceMap`
