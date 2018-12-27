@@ -5,6 +5,7 @@ import Hello from '@comp/Hello.vue';
 import '@/main.css';
 
 function install(vue: VueConstructor<Vue>) {
+	console.log(HELLO);
 	vue.component('Hello', Hello);
 }
 

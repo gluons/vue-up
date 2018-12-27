@@ -41,6 +41,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		outDir,
 		cleanOutDir,
 		alias,
+		define,
 		sourceMap
 	} = config;
 	const { module: moduleExternals, web: webExternals } = externals;
@@ -56,6 +57,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			ssr,
 			fileName,
 			alias,
+			define,
 			externals
 		});
 	};

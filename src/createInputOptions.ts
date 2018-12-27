@@ -11,6 +11,7 @@ import vue from 'rollup-plugin-vue';
 
 import constructAlias from './lib/constructAlias';
 import progress from './lib/ProgressPlugin';
+import stringifyObjectValues from './utils/stringifyObjectValues';
 
 /**
  * Options of `createInputOptions`.
@@ -55,6 +56,13 @@ export interface InputOptions {
 	 */
 	alias: Record<string, string>;
 	/**
+	 * Define global constants to apply at compile time
+	 *
+	 * @type {Record<string, any>}
+	 * @memberof InputOptions
+	 */
+	define: Record<string, any>;
+	/**
 	 * External dependencies (Rollup's `external`)
 	 *
 	 * @type {ExternalOption}
@@ -79,13 +87,15 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		ssr,
 		fileName,
 		alias,
+		define,
 		externals
 	} = options;
 
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
 	const constructedAlias = constructAlias(alias);
 	const definedConstants = {
-		'process.env.NODE_ENV': JSON.stringify('production')
+		'process.env.NODE_ENV': JSON.stringify('production'),
+		...(typeof define === 'object' ? stringifyObjectValues(define) : {})
 	};
 	const inputOptions: RollupFileOptions = {
 		input: entry,
