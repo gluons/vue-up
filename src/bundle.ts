@@ -6,7 +6,7 @@ import { rollup, RollupSingleFileBuild } from 'rollup';
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
 import { FormatInfo, moduleFormats, ssrFormats, webFormats } from './lib/formats';
-import nodeExternals from './lib/nodeExternals';
+import nodeExternals, { NodeExternalsOptions } from './lib/nodeExternals';
 import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
 import Configuration, { ExternalOption } from './types/Configuration';
@@ -17,7 +17,8 @@ import logError from './utils/logError';
 export {
 	Configuration,
 	ExternalOption,
-	nodeExternals
+	nodeExternals,
+	NodeExternalsOptions
 };
 
 /**
