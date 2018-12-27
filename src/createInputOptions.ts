@@ -69,6 +69,13 @@ export interface InputOptions {
 	 * @memberof InputOptions
 	 */
 	externals: ExternalOption;
+	/**
+	 * Is this bundle for web?
+	 *
+	 * @type {boolean}
+	 * @memberof InputOptions
+	 */
+	isWeb: boolean;
 }
 
 /**
@@ -88,14 +95,16 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		fileName,
 		alias,
 		define,
-		externals
+		externals,
+		isWeb
 	} = options;
 
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
 	const constructedAlias = constructAlias(alias);
 	const definedConstants = {
 		...(typeof define === 'object' ? stringifyObjectValues(define) : {}),
-		'process.env.NODE_ENV': JSON.stringify('production')
+		'process.env.NODE_ENV': JSON.stringify('production'),
+		'IS_WEB_BUNDLE': JSON.stringify(isWeb)
 	};
 	const inputOptions: RollupFileOptions = {
 		input: entry,

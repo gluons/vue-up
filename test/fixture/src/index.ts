@@ -6,6 +6,11 @@ import '@/main.css';
 
 function install(vue: VueConstructor<Vue>) {
 	console.log(HELLO);
+
+	if (IS_WEB_BUNDLE) {
+		console.log('This will show only in web bundle.');
+	}
+
 	vue.component('Hello', Hello);
 }
 
