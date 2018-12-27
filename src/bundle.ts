@@ -48,6 +48,11 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	} = config;
 	const { module: moduleExternals, web: webExternals } = externals;
 
+	// Always include 'vue' in `externals` for web bundle
+	if (Array.isArray(webExternals) && !webExternals.includes('vue')) {
+		webExternals.push('vue');
+	}
+
 	const newInputOptions = (
 		externals: ExternalOption,
 		minimize = false,
