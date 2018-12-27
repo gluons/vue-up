@@ -1,6 +1,5 @@
 import postcss from '@gluons/rollup-plugin-postcss-only';
 import cssnano from 'cssnano';
-import isEmpty from 'lodash.isempty';
 import { ExternalOption, RollupFileOptions } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
@@ -62,13 +61,6 @@ export interface InputOptions {
 	 * @memberof InputOptions
 	 */
 	externals: ExternalOption;
-	/**
-	 * Replace `process.env.NODE_ENV` in final build?
-	 *
-	 * @type {boolean}
-	 * @memberof InputOptions
-	 */
-	replaceNodeEnv: boolean;
 }
 
 /**
@@ -87,23 +79,18 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		ssr,
 		fileName,
 		alias,
-		externals,
-		replaceNodeEnv
+		externals
 	} = options;
 
 	const cssFileName = `${fileName}${minimize ? '.min' : ''}.css`;
 	const constructedAlias = constructAlias(alias);
 	const definedConstants = {
-		...(replaceNodeEnv ? { 'process.env.NODE_ENV': JSON.stringify('production') } : {})
+		'process.env.NODE_ENV': JSON.stringify('production')
 	};
 	const inputOptions: RollupFileOptions = {
 		input: entry,
 		plugins: [
-			...(
-				!isEmpty(definedConstants) ?
-				[replace(definedConstants)] :
-				[]
-			),
+			replace(definedConstants),
 			nodeResolve(),
 			commonjs(),
 			resolveAlias({
