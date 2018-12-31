@@ -1,6 +1,8 @@
 import { IsExternal } from 'rollup';
 import validateNPMPackageName from 'validate-npm-package-name';
 
+import isNonEmptyArray from '../utils/isNonEmptyArray';
+
 const nodeModulesRegex = /[\/\\]node_modules[\/\\]/;
 
 /**
@@ -11,12 +13,19 @@ const nodeModulesRegex = /[\/\\]node_modules[\/\\]/;
  */
 export interface NodeExternalsOptions {
 	/**
-	 * List of additional module RegEx to exclude from bundle
+	 * List of additional modules to exclude from bundle
 	 *
-	 * @type {RegExp[]}
+	 * @type {(Array<string | RegExp>)}
 	 * @memberof NodeExternalsOptions
 	 */
-	extra?: RegExp[];
+	extra?: Array<string | RegExp>;
+	/**
+	 * Whitelist of modules to include in bundle (Don't treat as externals)
+	 *
+	 * @type {(Array<string | RegExp>)}
+	 * @memberof NodeExternalsOptions
+	 */
+	whitelist?: Array<string | RegExp>;
 }
 
 /**
@@ -26,9 +35,19 @@ export interface NodeExternalsOptions {
  * @returns {IsExternal}
  */
 export default function nodeExternals(options: NodeExternalsOptions = {}): IsExternal {
-	const { extra } = options;
+	const { extra, whitelist } = options;
 
 	return (id: string): boolean => {
+		// Don't exclude `whitelist` from bundle
+		if (
+			isNonEmptyArray(whitelist) &&
+			whitelist.some(
+				item => (typeof item === 'string' ? id === item : item.test(id))
+			)
+		) {
+			return false;
+		}
+
 		// Node package name
 		const validateResult = validateNPMPackageName(id);
 		const isNPMPackage: boolean = validateResult.validForNewPackages;
@@ -42,10 +61,12 @@ export default function nodeExternals(options: NodeExternalsOptions = {}): IsExt
 			return true;
 		}
 
+		// Also exclude `extra` from bundle
 		if (
-			Array.isArray(extra) &&
-			extra.length > 0 &&
-			extra.some(extraRegex => extraRegex.test(id))
+			isNonEmptyArray(extra) &&
+			extra.some(
+				item => (typeof item === 'string' ? id === item : item.test(id))
+			)
 		) {
 			return true;
 		}
