@@ -260,10 +260,10 @@
     webpack-dev-server "^3.1.10"
     webpackbar "^3.1.4"
 
-"@sindresorhus/slugify@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.6.0.tgz#21ea00f4abf43d13a4c39c8174f241ff9b5d12bc"
-  integrity sha512-m6smRWGuY0kr0oRdfuTNHWvtBlgtr/ixSa9xiGzFtRjXHghQIlf8s8ZKPWSXj/KraaYuvI//bVBEcncIMzjxVg==
+"@sindresorhus/slugify@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.7.0.tgz#9a3a227b1b5c2cc8df06380cd657783c1887a3a9"
+  integrity sha512-3XQu4oFaTHy4wguh+Vz22GwPCm3t8qCq2/rN2+iah+H2gmf2297NQC8RkO+vvU9EW0REoaSZXwTPAJAzmVflxA==
   dependencies:
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
