@@ -11,7 +11,7 @@ import logError from '../utils/logError';
  */
 export default function verifyDevOptions(devOptions: DevOptions): void {
 	try {
-		ow(devOptions.entry, ow.string.nonEmpty.label('entry'));
+		ow(devOptions.entry, 'entry', ow.string.nonEmpty);
 	} catch (err) {
 		logError(err);
 		process.exit(1);
