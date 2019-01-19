@@ -1,7 +1,7 @@
 import del from 'del';
 import nvl from 'nvl';
 import { join } from 'path';
-import { rollup, RollupSingleFileBuild } from 'rollup';
+import { rollup, RollupBuild } from 'rollup';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
@@ -91,7 +91,7 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			rollup(webMinInputOptions)
 		]);
 
-		const writer = (bundle: RollupSingleFileBuild) => {
+		const writer = (bundle: RollupBuild) => {
 			return (formatInfo: FormatInfo) => {
 				const { format, suffix } = formatInfo;
 
