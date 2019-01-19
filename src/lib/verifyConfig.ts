@@ -11,8 +11,8 @@ import logError from '../utils/logError';
  */
 export default function verifyConfig(config: Configuration): void {
 	try {
-		ow(config.entry, ow.string.nonEmpty.label('entry'));
-		ow(config.libraryName, ow.string.nonEmpty.label('libraryName'));
+		ow(config.entry, 'entry', ow.string.nonEmpty);
+		ow(config.libraryName, 'libraryName', ow.string.nonEmpty);
 
 		if (!config.fileName) {
 			throw new TypeError(
