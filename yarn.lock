@@ -7297,12 +7297,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rollup-plugin-babel-minify@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-babel-minify/-/rollup-plugin-babel-minify-6.2.0.tgz#d101fa6c1ff79c67b2af91632a87284bf1bd7f8b"
-  integrity sha512-Ahil4nyB97OSoMTqm8qDyuL8e3NU1juDDdTC3Tuy00DvCLJmuX7OVrfEhGVJtguh/D1aO2t/2pe59/dzT/k4mw==
+rollup-plugin-babel-minify@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-babel-minify/-/rollup-plugin-babel-minify-7.0.0.tgz#658462d7aec0e83971816eff36338aad81ac15f3"
+  integrity sha512-ExLkt1yo1iNXVADxF/pq27/gk7mbGXhMUJybvUHDAw0Qw6F+Th7oWiuOsPcz+ylbmvmRu4l0/V3w1rdJuIT80Q==
   dependencies:
     "@babel/core" "^7.0.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     "@comandeer/babel-plugin-banner" "^4.0.0"
     babel-preset-minify "^0.5.0"
     sourcemap-codec "^1.4.3"
