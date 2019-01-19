@@ -136,10 +136,7 @@ export default function createInputOptions(options: InputOptions): RollupInputOp
 				[
 					minify({
 						comments: false,
-						mangle: false,
-						plugins: [
-							'@babel/plugin-syntax-dynamic-import'
-						]
+						mangle: false
 					})
 				] :
 				[]
