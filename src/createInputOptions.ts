@@ -1,6 +1,6 @@
 import postcss from '@gluons/rollup-plugin-postcss-only';
 import cssnano from 'cssnano';
-import { ExternalOption, RollupFileOptions, RollupWarning, WarningHandler } from 'rollup';
+import { ExternalOption, InputOptions as RollupInputOptions, RollupWarning, WarningHandler } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
@@ -87,7 +87,7 @@ export interface InputOptions {
  * @param {ExternalOption} [externals=['vue']] External dependencies. (Rollup's `external`)
  * @returns {RollupFileOptions}
  */
-export default function createInputOptions(options: InputOptions): RollupFileOptions {
+export default function createInputOptions(options: InputOptions): RollupInputOptions {
 	const {
 		entry,
 		minimize,
@@ -106,7 +106,7 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 		'process.env.NODE_ENV': JSON.stringify('production'),
 		'IS_WEB_BUNDLE': JSON.stringify(isWeb)
 	};
-	const inputOptions: RollupFileOptions = {
+	const inputOptions: RollupInputOptions = {
 		input: entry,
 		plugins: [
 			replace(definedConstants),
@@ -147,7 +147,7 @@ export default function createInputOptions(options: InputOptions): RollupFileOpt
 			progress()
 		],
 		external: externals,
-		onwarn: ((warning: RollupWarning, warn) => {
+		onwarn: ((warning: RollupWarning, warn: (warning: string | RollupWarning) => void) => {
 			if (warning.code === 'THIS_IS_UNDEFINED') {
 				return;
 			}
