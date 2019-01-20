@@ -35,9 +35,11 @@ export interface NodeExternalsOptions {
  * @returns {IsExternal}
  */
 export default function nodeExternals(
-	options: NodeExternalsOptions = {}
+	options: NodeExternalsOptions = { extra: [], whitelist: [] }
 ): IsExternal {
 	const { extra, whitelist } = options;
+
+	whitelist.push(/vue-runtime-helpers/);
 
 	return (id: string): boolean => {
 		// Don't exclude `whitelist` from bundle
