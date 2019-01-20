@@ -20,7 +20,7 @@
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
-    "format": "prettier-tslint fix \"{{src,scripts}/**,test/*.ts}\"",
+    "format": "prettier-tslint fix \"{{src,scripts}/**/*.ts,test/*.ts}\"",
     "pretest": "npm run build && ts-node ./scripts/prepareTest.ts",
     "test": "npm run lint && jest -c jest.config.json --verbose"
   },
