@@ -7,6 +7,9 @@
 
 🎀 Bundle [Vue.js](https://vuejs.org/) library via [Rollup](https://rollupjs.org/).
 
+> Vue Up is created to suit my personal requirements.  
+  But you can also use it if it meets your requirements. 🙂
+
 ## ⚙️ Installation
 
 **Install via [npm](https://www.npmjs.com/):**
