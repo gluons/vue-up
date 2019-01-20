@@ -3,6 +3,7 @@ import Vue, { VueConstructor } from 'vue';
 import Hello from '@comp/Hello.vue';
 
 import '@/main.css';
+import '@/secondary.scss';
 
 function install(vue: VueConstructor<Vue>) {
 	console.log(HELLO);
