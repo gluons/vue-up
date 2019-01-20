@@ -53,8 +53,7 @@ export function builder(yargs: Argv): Argv {
 			desc: `External dependencies. (Rollup's "external")`,
 			alias: 'e',
 			defaultDescription: JSON.stringify(defaultConfig.externals)
-		})
-	;
+		});
 }
 
 export type BuildArgs = {
@@ -65,7 +64,7 @@ export type BuildArgs = {
 	outDir?: string;
 	cleanOutDir?: boolean;
 	sourceMap?: boolean;
-	externals?: string[]
+	externals?: string[];
 };
 
 export async function handler(argv: Arguments<BuildArgs>): Promise<void> {

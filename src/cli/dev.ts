@@ -37,8 +37,7 @@ export function builder(yargs: Argv): Argv {
 			type: 'string',
 			desc: 'Title of development page.',
 			defaultDescription: JSON.stringify(DefaultOptions.htmlTitle)
-		})
-	;
+		});
 }
 
 export type DevArgs = {
@@ -59,7 +58,8 @@ export async function handler(argv: Arguments<DevArgs>): Promise<void> {
 	const alias = config.alias;
 	const define = configDevOptions.define;
 	const port = nvl(cliDevOptions.port, configDevOptions.port);
-	const open = (typeof argv.noOpen === 'boolean') ? !argv.noOpen : configDevOptions.open;
+	const open =
+		typeof argv.noOpen === 'boolean' ? !argv.noOpen : configDevOptions.open;
 	const htmlTitle = nvl(cliDevOptions.htmlTitle, configDevOptions.htmlTitle);
 
 	const options: Options = {

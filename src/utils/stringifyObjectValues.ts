@@ -5,7 +5,9 @@
  * @param {Record<string, any>} obj An object
  * @returns {Record<string, string>}
  */
-export default function stringifyObjectValues(obj: Record<string, any>): Record<string, string> {
+export default function stringifyObjectValues(
+	obj: Record<string, any>
+): Record<string, string> {
 	const newObj: Record<string, string> = {};
 
 	for (const key in obj) {

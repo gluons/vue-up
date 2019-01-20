@@ -6,5 +6,5 @@
  * @returns {boolean}
  */
 export default function isNonEmptyArray(arr: any): boolean {
-	return Array.isArray(arr) && (arr.length > 0);
+	return Array.isArray(arr) && arr.length > 0;
 }

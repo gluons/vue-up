@@ -10,7 +10,10 @@ import isNil from 'lodash.isnil';
  * @param {(T | Partial<T>)} second Second object
  * @returns {(T | Partial<T>)}
  */
-export default function ifMerge<T>(first: T | Partial<T>, second: T | Partial<T>): T | Partial<T> {
+export default function ifMerge<T>(
+	first: T | Partial<T>,
+	second: T | Partial<T>
+): T | Partial<T> {
 	if (isNil(first)) {
 		return second;
 	}

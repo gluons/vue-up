@@ -34,15 +34,17 @@ export interface NodeExternalsOptions {
  * @export
  * @returns {IsExternal}
  */
-export default function nodeExternals(options: NodeExternalsOptions = {}): IsExternal {
+export default function nodeExternals(
+	options: NodeExternalsOptions = {}
+): IsExternal {
 	const { extra, whitelist } = options;
 
 	return (id: string): boolean => {
 		// Don't exclude `whitelist` from bundle
 		if (
 			isNonEmptyArray(whitelist) &&
-			whitelist.some(
-				item => (typeof item === 'string' ? id === item : item.test(id))
+			whitelist.some(item =>
+				typeof item === 'string' ? id === item : item.test(id)
 			)
 		) {
 			return false;
@@ -64,8 +66,8 @@ export default function nodeExternals(options: NodeExternalsOptions = {}): IsExt
 		// Also exclude `extra` from bundle
 		if (
 			isNonEmptyArray(extra) &&
-			extra.some(
-				item => (typeof item === 'string' ? id === item : item.test(id))
+			extra.some(item =>
+				typeof item === 'string' ? id === item : item.test(id)
 			)
 		) {
 			return true;

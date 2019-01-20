@@ -7,7 +7,9 @@ import resolveCwd from '../utils/resolveCwd';
  * @param {Record<string, string>} alias User-provided alias
  * @returns {Record<string, string>}
  */
-export default function constructAlias(alias: Record<string, string>): Record<string, string> {
+export default function constructAlias(
+	alias: Record<string, string>
+): Record<string, string> {
 	const builtInAlias: Record<string, string> = {
 		'@': resolveCwd('./src')
 	};

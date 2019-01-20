@@ -78,8 +78,8 @@ export default interface Configuration {
 	 * @memberof Configuration
 	 */
 	externals?: {
-		module?: ExternalOption,
-		web?: ExternalOption
+		module?: ExternalOption;
+		web?: ExternalOption;
 	};
 	/**
 	 * Global variables of external dependencies (Rollup's `output.globals`)

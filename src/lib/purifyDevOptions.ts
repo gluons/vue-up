@@ -9,15 +9,14 @@ import DevOptions from '../types/DevOptions';
  * @param {Record<string, any>} impureDevOptions Impure development options
  * @returns {DevOptions}
  */
-export default function purifyDevOptions(impureDevOptions: Record<string, any>): DevOptions {
-	const devOptions: DevOptions = pick(
-		impureDevOptions,
-		[
-			'entry',
-			'port',
-			'htmlTitle'
-		]
-	);
+export default function purifyDevOptions(
+	impureDevOptions: Record<string, any>
+): DevOptions {
+	const devOptions: DevOptions = pick(impureDevOptions, [
+		'entry',
+		'port',
+		'htmlTitle'
+	]);
 
 	return devOptions;
 }

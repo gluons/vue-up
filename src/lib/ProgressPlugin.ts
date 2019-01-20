@@ -42,13 +42,17 @@ export default function ProgressPlugin(): Plugin {
 			} catch (_) {}
 
 			const msg = yellow(`Bundling "${finalId}" ...`);
-			logUpdate(`${yellow(progress)} ${badge('in progress', 'yellow')} ${msg}`);
+			logUpdate(
+				`${yellow(progress)} ${badge('in progress', 'yellow')} ${msg}`
+			);
 		},
 		generateBundle() {
 			// Don't display success message when error found.
 			if (!pluginState.hasError) {
 				const msg = green('Bundle succeed.');
-				logUpdate(`${green(success)} ${badge('success', 'green')} ${msg}`);
+				logUpdate(
+					`${green(success)} ${badge('success', 'green')} ${msg}`
+				);
 			} else {
 				logUpdate.clear();
 			}
