@@ -5,7 +5,12 @@ import { rollup, RollupBuild } from 'rollup';
 
 import createInputOptions from './createInputOptions';
 import createOutputOptions from './createOutputOptions';
-import { FormatInfo, moduleFormats, ssrFormats, webFormats } from './lib/formats';
+import {
+	FormatInfo,
+	moduleFormats,
+	ssrFormats,
+	webFormats
+} from './lib/formats';
 import nodeExternals, { NodeExternalsOptions } from './lib/nodeExternals';
 import { pluginState } from './lib/ProgressPlugin';
 import verifyConfig from './lib/verifyConfig';
@@ -14,12 +19,7 @@ import fulfilConfig from './utils/fulfilConfig';
 import loadConfig from './utils/loadConfig';
 import logError from './utils/logError';
 
-export {
-	Configuration,
-	ExternalOption,
-	nodeExternals,
-	NodeExternalsOptions
-};
+export { Configuration, ExternalOption, nodeExternals, NodeExternalsOptions };
 
 /**
  * Bundle Vue library.
@@ -29,6 +29,8 @@ export {
  * @returns
  */
 export default async function bundle(config?: Configuration): Promise<void> {
+	process.env.NODE_ENV = 'production';
+
 	config = nvl(config, await loadConfig());
 	config = fulfilConfig(config);
 
@@ -72,10 +74,15 @@ export default async function bundle(config?: Configuration): Promise<void> {
 	};
 
 	try {
-		cleanOutDir && await del(join(outDir, '*'), { dot: true });
+		cleanOutDir && (await del(join(outDir, '*'), { dot: true }));
 
 		const moduleInputOptions = newInputOptions(moduleExternals);
-		const ssrInputOptions = newInputOptions(moduleExternals, false, false, true);
+		const ssrInputOptions = newInputOptions(
+			moduleExternals,
+			false,
+			false,
+			true
+		);
 		const webUnminInputOptions = newInputOptions(webExternals, true);
 		const webMinInputOptions = newInputOptions(webExternals, true, true);
 
