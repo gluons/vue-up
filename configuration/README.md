@@ -77,7 +77,7 @@ Use source map?
 **Type:** `{ module: ExternalOption, web: ExternalOption }`  
 **Default:** `{ module: nodeExternals(), web: ['vue'] }`
 
-External dependencies. (Rollup's [`external`](https://rollupjs.org/guide/en#external-e-external))
+External dependencies. (Rollup's [`external`](https://rollupjs.org/guide/en#external))
 
 `module` is the external dependencies for CommonJS, ES module and SSR bundles.  
 `web` is the external dependencies for web bundles.
@@ -93,7 +93,7 @@ External dependencies. (Rollup's [`external`](https://rollupjs.org/guide/en#exte
 ## `globals`
 **Type:** `{ [key: string]: string }`
 
-Global variables of external dependencies. (Rollup's [`output.globals`](https://rollupjs.org/guide/en#output-globals-g-globals))
+Global variables of external dependencies. (Rollup's [`output.globals`](https://rollupjs.org/guide/en#output-globals))
 
 ## `dev`
 **Type:** [`DevOptions`](/dev-options/)
