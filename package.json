@@ -20,7 +20,7 @@
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
-    "format": "prettier --write \"{{src,scripts}/**,test/*.ts}\"",
+    "format": "prettier-tslint fix \"{{src,scripts}/**,test/*.ts}\"",
     "pretest": "npm run build && ts-node ./scripts/prepareTest.ts",
     "test": "npm run lint && jest -c jest.config.json --verbose"
   },
@@ -96,6 +96,7 @@
     "cross-spawn": "^6.0.5",
     "jest": "^23.5.0",
     "prettier": "^1.15.3",
+    "prettier-tslint": "^0.4.2",
     "rimraf": "^2.6.3",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
