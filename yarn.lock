@@ -143,6 +143,11 @@
   resolved "https://registry.yarnpkg.com/@comandeer/babel-plugin-banner/-/babel-plugin-banner-4.0.0.tgz#1613f9b37ee075291ecfb73d57193e1e05dc76c3"
   integrity sha512-JhkNsBm8n4Z3rU1Sl2ivPX+Gd3dBcxLUdhLrn3Yok33uBGmoT0wNspXjOgToPxFqDAHHAWj83uj7MSLEJCLpxQ==
 
+"@gluons/prettier-config@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@gluons/prettier-config/-/prettier-config-2.0.0.tgz#4afa561ccfaee4fdd8b4ed984bcbbd50770207d6"
+  integrity sha512-JFcGcVxJZsRENdmRXzthYSq0lFaWitQ150K3BW0nD7ye5n3hRNmS0tHaO/Sw+lxZTf3YL0i1CNbjI0Gf0Zl0UQ==
+
 "@gluons/rollup-plugin-postcss-only@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@gluons/rollup-plugin-postcss-only/-/rollup-plugin-postcss-only-1.2.0.tgz#1e76e3689ea827c9f2fe81c8db86c0f3bb2af5f7"
@@ -6617,6 +6622,11 @@ prettier@1.13.7:
   version "1.13.7"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.7.tgz#850f3b8af784a49a6ea2d2eaa7ed1428a34b7281"
   integrity sha512-KIU72UmYPGk4MujZGYMFwinB7lOf2LsDNGSOC8ufevsrPLISrZbNJlWstRi3m0AMuszbH+EFSQ/r6w56RSPK6w==
+
+prettier@^1.15.3:
+  version "1.15.3"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-1.15.3.tgz#1feaac5bdd181237b54dbe65d874e02a1472786a"
+  integrity sha512-gAU9AGAPMaKb3NNSUUuhhFAS7SCO4ALTN4nRIn6PJ075Qd28Yn2Ig2ahEJWdJwJmlEBTUfC7mMUSFy8MwsOCfg==
 
 pretty-error@^2.0.2:
   version "2.1.1"

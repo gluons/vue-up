@@ -20,6 +20,7 @@
     "prebuild": "rimraf dist/*",
     "build": "tsc",
     "lint": "tslint -p .",
+    "format": "prettier --write \"{src,scripts}/**\"",
     "pretest": "npm run build && ts-node ./scripts/prepareTest.ts",
     "test": "npm run lint && jest -c jest.config.json --verbose"
   },
@@ -77,6 +78,7 @@
     "yargs": "^12.0.5"
   },
   "devDependencies": {
+    "@gluons/prettier-config": "^2.0.0",
     "@types/cheerio": "^0.22.10",
     "@types/cross-spawn": "^6.0.0",
     "@types/del": "^3.0.1",
@@ -93,6 +95,7 @@
     "cheerio": "^1.0.0-rc.2",
     "cross-spawn": "^6.0.5",
     "jest": "^23.5.0",
+    "prettier": "^1.15.3",
     "rimraf": "^2.6.3",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
