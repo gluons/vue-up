@@ -82,7 +82,7 @@
     "@types/cheerio": "^0.22.10",
     "@types/cross-spawn": "^6.0.0",
     "@types/del": "^3.0.1",
-    "@types/jest": "^23.3.13",
+    "@types/jest": "^24.0.0",
     "@types/lodash.isnil": "^4.0.4",
     "@types/lodash.pick": "^4.4.4",
     "@types/node": "8",
