@@ -75,7 +75,7 @@
     "rollup-plugin-vue": "^4.6.1",
     "tslib": "^1.9.3",
     "validate-npm-package-name": "^3.0.0",
-    "yargs": "^12.0.5"
+    "yargs": "^13.0.0"
   },
   "devDependencies": {
     "@gluons/prettier-config": "^2.0.0",
