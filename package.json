@@ -22,7 +22,7 @@
     "lint": "tslint -p .",
     "format": "prettier-tslint fix \"{{src,scripts}/**/*.ts,test/*.ts}\"",
     "pretest": "npm run build && ts-node ./scripts/prepareTest.ts",
-    "test": "npm run lint && jest -c jest.config.json --verbose"
+    "test": "npm run lint && jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -78,6 +78,9 @@
     "yargs": "^13.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.3.3",
     "@gluons/prettier-config": "^2.0.0",
     "@types/cheerio": "^0.22.10",
     "@types/cross-spawn": "^6.0.0",
@@ -91,18 +94,17 @@
     "@vue/server-test-utils": "^1.0.0-beta.29",
     "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.4.7",
-    "babel-core": "^6.26.3",
+    "babel-jest": "^24.1.0",
     "cheerio": "^1.0.0-rc.2",
     "cross-spawn": "^6.0.5",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
     "prettier-tslint": "^0.4.2",
     "rimraf": "^2.6.3",
-    "ts-jest": "^23.10.5",
     "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
     "tslint-config-gluons": "^2.1.0",
-    "typescript": "~3.3.3",
+    "typescript": "^3.3.3",
     "vue": "^2.6.6",
     "vue-class-component": "^6.3.2",
     "vue-server-renderer": "^2.6.6",
