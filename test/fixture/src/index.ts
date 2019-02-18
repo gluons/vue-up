@@ -5,11 +5,13 @@ import Hello from '@comp/Hello.vue';
 import '@/main.css';
 import '@/secondary.scss';
 
+const noop = (..._: any[]) => {};
+
 function install(vue: VueConstructor<Vue>) {
-	console.log(HELLO);
+	noop(HELLO);
 
 	if (IS_WEB_BUNDLE) {
-		console.log('This will show only in web bundle.');
+		noop('This will show only in web bundle.');
 	}
 
 	vue.component('Hello', Hello);
