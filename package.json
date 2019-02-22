@@ -106,7 +106,7 @@
     "tslint-config-gluons": "^2.1.0",
     "typescript": "^3.3.3",
     "vue": "^2.6.6",
-    "vue-class-component": "^6.3.2",
+    "vue-class-component": "^7.0.0",
     "vue-server-renderer": "^2.6.6",
     "vue-template-compiler": "^2.6.6"
   },
