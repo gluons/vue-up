@@ -3,7 +3,25 @@ import validateNPMPackageName from 'validate-npm-package-name';
 
 import isNonEmptyArray from '../utils/isNonEmptyArray';
 
+const areRegExpsEqual = (a: RegExp, b: RegExp) => a.toString() === b.toString();
+const contain = (items: Array<string | RegExp>, itemToFind: string | RegExp) =>
+	items.some(item => {
+		if (typeof itemToFind !== typeof item) {
+			return false;
+		}
+		if (itemToFind instanceof RegExp && item instanceof RegExp) {
+			return areRegExpsEqual(itemToFind, item);
+		}
+
+		return itemToFind === item;
+	});
+
 const nodeModulesRegex = /[\/\\]node_modules[\/\\]/;
+const forceBundleModules = [
+	/vue-runtime-helpers/,
+	/vue-class-component/,
+	/vue-property-decorator/
+];
 
 /**
  * Options of `nodeExternals`.
@@ -39,7 +57,12 @@ export default function nodeExternals(
 ): IsExternal {
 	const { extra, whitelist } = options;
 
-	whitelist.push(/vue-runtime-helpers/);
+	// Always bundle these modules
+	forceBundleModules.forEach(moduleRegEx => {
+		if (!contain(whitelist, moduleRegEx)) {
+			whitelist.push(moduleRegEx);
+		}
+	});
 
 	return (id: string): boolean => {
 		// Don't exclude `whitelist` from bundle
