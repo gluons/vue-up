@@ -71,7 +71,7 @@
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-resolve-alias": "^0.2.1",
-    "rollup-plugin-typescript2": "^0.19.3",
+    "rollup-plugin-typescript2": "^0.20.0",
     "rollup-plugin-vue": "^4.7.2",
     "tslib": "^1.9.3",
     "validate-npm-package-name": "^3.0.0",
