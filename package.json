@@ -47,7 +47,7 @@
     "vue-template-compiler": "2"
   },
   "dependencies": {
-    "@gluons/rollup-plugin-postcss-only": "^1.2.0",
+    "@gluons/rollup-plugin-postcss-only": "^2.0.0",
     "@gluons/vue-pack-dev": "^1.18.1",
     "@sindresorhus/slugify": "^0.9.1",
     "chalk": "^2.4.2",
