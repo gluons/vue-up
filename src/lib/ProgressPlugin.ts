@@ -32,9 +32,10 @@ export default function ProgressPlugin(): Plugin {
 			pluginState.hasError = false; // Reset state
 
 			const msg = cyan('Start bundling.');
+
 			logUpdate(`${cyan(start)} ${badge('pending', 'cyan')} ${msg}`);
 		},
-		transform(_, id) {
+		transform(_, id): undefined {
 			let finalId: string = trim(id);
 
 			try {
@@ -42,14 +43,18 @@ export default function ProgressPlugin(): Plugin {
 			} catch (_) {}
 
 			const msg = yellow(`Bundling "${finalId}" ...`);
+
 			logUpdate(
 				`${yellow(progress)} ${badge('in progress', 'yellow')} ${msg}`
 			);
+
+			return;
 		},
 		generateBundle() {
 			// Don't display success message when error found.
 			if (!pluginState.hasError) {
 				const msg = green('Bundle succeed.');
+
 				logUpdate(
 					`${green(success)} ${badge('success', 'green')} ${msg}`
 				);
