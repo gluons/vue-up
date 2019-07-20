@@ -75,11 +75,11 @@
     "rollup-plugin-vue": "^5.0.1",
     "tslib": "^1.10.0",
     "validate-npm-package-name": "^3.0.0",
-    "yargs": "^13.2.4"
+    "yargs": "^13.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
     "@gluons/prettier-config": "^2.0.0",
     "@types/cheerio": "^0.22.12",
@@ -88,7 +88,7 @@
     "@types/jest": "^24.0.15",
     "@types/lodash.isnil": "^4.0.6",
     "@types/lodash.pick": "^4.4.6",
-    "@types/node": "8",
+    "@types/node": "10",
     "@types/signale": "^1.2.1",
     "@types/yargs": "^13.0.0",
     "@vue/server-test-utils": "^1.0.0-beta.29",
