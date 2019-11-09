@@ -50,7 +50,7 @@
     "@gluons/rollup-plugin-postcss-only": "^2.0.0",
     "@gluons/vue-pack-dev": "^1.20.0",
     "@sindresorhus/slugify": "^0.9.1",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "figures": "^3.0.0",
