@@ -6985,10 +6985,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ow@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/ow/-/ow-0.14.0.tgz#648b5a28df784dc8189b0bb2d84507b5a1101852"
-  integrity sha512-6TgQxPCHsqzEJLxdLRHRiPTjeGfLvs8BuD6VvXHsKjYTDQY1CdYp6g6V1bJkTMMo38dtbq3yjYnavUbw0Bxb4g==
+ow@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/ow/-/ow-0.15.0.tgz#0d928046989422d7b06f0d6f20017016a0373df5"
+  integrity sha512-iHHqr8OXsZzBjUkOVxfSR8opBhEhdQUGE4mxZEWehQawHxhCcnnGXrfu6+HhLG3XTK+oHRD/dlfGwNdY9HTHxQ==
   dependencies:
     type-fest "^0.8.1"
 
