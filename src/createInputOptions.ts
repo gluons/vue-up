@@ -1,10 +1,10 @@
 import postcss from '@gluons/rollup-plugin-postcss-only';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import cssnano from 'cssnano';
 import { ExternalOption, InputOptions as RollupInputOptions, RollupWarning, WarningHandler } from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
 import resolveAlias from 'rollup-plugin-resolve-alias';
 import ts from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
