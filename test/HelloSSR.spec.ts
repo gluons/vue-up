@@ -16,8 +16,8 @@ const App = localVue.extend({
 });
 
 describe('Components', () => {
-	test('should get an expect Hello component', () => {
-		const renderedString = renderToString(App, {
+	test('should get an expect Hello component', async () => {
+		const renderedString = await renderToString(App, {
 			localVue
 		});
 		const $ = cheerio.load(renderedString);
