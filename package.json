@@ -50,7 +50,7 @@
     "@gluons/rollup-plugin-postcss-only": "^2.0.0",
     "@gluons/vue-pack-dev": "^1.20.2",
     "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-replace": "^2.3.0",
     "@sindresorhus/slugify": "^0.9.1",
     "chalk": "^3.0.0",
