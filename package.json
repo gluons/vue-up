@@ -61,7 +61,7 @@
     "joycon-yaml-loader": "^2.0.2",
     "lodash.isnil": "^4.0.0",
     "lodash.pick": "^4.4.0",
-    "log-update": "^3.3.0",
+    "log-update": "^4.0.0",
     "moren": "^3.0.0",
     "node-sass": "^4.13.0",
     "nvl": "^1.2.2",
