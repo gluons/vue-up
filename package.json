@@ -68,7 +68,7 @@
     "ow": "^0.16.0",
     "postcss": "^7.0.26",
     "pug": "^2.0.4",
-    "rollup": "^1.28.0",
+    "rollup": "^2.0.0",
     "rollup-plugin-babel-minify": "^9.1.1",
     "rollup-plugin-resolve-alias": "^0.2.1",
     "rollup-plugin-typescript2": "^0.26.0",
