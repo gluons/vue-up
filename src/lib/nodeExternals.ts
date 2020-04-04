@@ -4,7 +4,7 @@ import validateNPMPackageName from 'validate-npm-package-name';
 import isNonEmptyArray from '../utils/isNonEmptyArray';
 
 const areRegExpsEqual = (a: RegExp, b: RegExp) => a.toString() === b.toString();
-const contain = (items: Array<string | RegExp>, itemToFind: string | RegExp) =>
+const contain = (items: (string | RegExp)[], itemToFind: string | RegExp) =>
 	items.some(item => {
 		if (typeof itemToFind !== typeof item) {
 			return false;
@@ -36,14 +36,14 @@ export interface NodeExternalsOptions {
 	 * @type {(Array<string | RegExp>)}
 	 * @memberof NodeExternalsOptions
 	 */
-	extra?: Array<string | RegExp>;
+	extra?: (string | RegExp)[];
 	/**
 	 * Whitelist of modules to include in bundle (Don't treat as externals)
 	 *
 	 * @type {(Array<string | RegExp>)}
 	 * @memberof NodeExternalsOptions
 	 */
-	whitelist?: Array<string | RegExp>;
+	whitelist?: (string | RegExp)[];
 }
 
 /**
