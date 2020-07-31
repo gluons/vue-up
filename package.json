@@ -88,7 +88,7 @@
     "@types/jest": "^26.0.0",
     "@types/lodash.isnil": "^4.0.6",
     "@types/lodash.pick": "^4.4.6",
-    "@types/node": "10",
+    "@types/node": "14",
     "@types/signale": "^1.4.1",
     "@types/yargs": "^15.0.4",
     "@vue/server-test-utils": "^1.0.0-beta.32",
