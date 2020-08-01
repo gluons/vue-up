@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { createLocalVue, mount } from '@vue/test-utils';
 
 import HelloPlugin from './fixture/dist/hello-plugin.cjs';
@@ -14,8 +15,8 @@ describe('Components', () => {
 			}
 		);
 
-		expect(wraper.isVueInstance()).toBeTruthy();
-		expect(wraper.is('#hello')).toBe(true);
+		expect(wraper.vm instanceof Vue).toBe(true);
+		expect(wraper.attributes('id')).toBe('hello');
 		expect(wraper.find('#hello span').exists()).toBe(true);
 		expect(wraper.text()).toEqual('Hello, World!');
 	});
