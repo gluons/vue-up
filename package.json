@@ -93,7 +93,7 @@
     "@types/yargs": "^15.0.4",
     "@vue/server-test-utils": "^1.0.0-beta.32",
     "@vue/test-utils": "^1.0.0-beta.32",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.0.0",
     "babel-jest": "^26.2.2",
     "cheerio": "^1.0.0-rc.3",
     "cross-spawn": "^7.0.3",
