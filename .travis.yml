@@ -1,10 +1,18 @@
 language: node_js
 node_js:
+  - "node"
   - "lts/*"
-  - "lts/dubnium"
+cache:
+  npm: false
+  directories:
+    - "~/.pnpm-store"
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
+  - curl -L https://unpkg.com/@pnpm/self-installer | node
+  - pnpm config set store-dir ~/.pnpm-store
+install:
+  - pnpm install
+script:
+  - pnpm test
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
