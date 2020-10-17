@@ -83,6 +83,7 @@ export default function createOutputOptions(options: OutputOptions): RollupOutpu
 		format,
 		file: join(outDir, `${fileName}.${suffix}.js`),
 		name: libraryName,
+		exports: 'auto',
 		sourcemap: sourceMap,
 		globals: {
 			...(typeof globals === 'object' ? globals : {}),
