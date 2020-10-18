@@ -1,7 +1,0 @@
-{
-	"extends": "tslint-config-gluons",
-	"rules": {
-		"interface-over-type-literal": false,
-		"no-shadowed-variable": false
-	}
-}
