@@ -58,10 +58,10 @@ export default interface Configuration {
 	/**
 	 * Define global constants to apply at compile time
 	 *
-	 * @type {Record<string, any>}
+	 * @type {Record<string, unknown>}
 	 * @memberof Configuration
 	 */
-	define?: Record<string, any>;
+	define?: Record<string, unknown>;
 	/**
 	 * Use source map?
 	 *

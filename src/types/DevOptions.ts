@@ -15,10 +15,10 @@ export default interface DevOptions {
 	/**
 	 * Define global constants to apply at compile time
 	 *
-	 * @type {Record<string, any>}
+	 * @type {Record<string, unknown>}
 	 * @memberof DevOptions
 	 */
-	define?: Record<string, any>;
+	define?: Record<string, unknown>;
 	/**
 	 * Port of development server
 	 *

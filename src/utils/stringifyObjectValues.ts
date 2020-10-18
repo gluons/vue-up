@@ -6,7 +6,7 @@
  * @returns {Record<string, string>}
  */
 export default function stringifyObjectValues(
-	obj: Record<string, any>
+	obj: Record<string, unknown>
 ): Record<string, string> {
 	const newObj: Record<string, string> = {};
 

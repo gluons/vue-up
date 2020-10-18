@@ -60,8 +60,8 @@ export default async function bundle(config?: Configuration): Promise<void> {
 		isWeb = false,
 		minimize = false,
 		ssr = false
-	) => {
-		return createInputOptions({
+	) =>
+		createInputOptions({
 			entry,
 			minimize,
 			ssr,
@@ -71,7 +71,6 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			externals,
 			isWeb
 		});
-	};
 
 	try {
 		cleanOutDir && (await del(join(outDir, '*'), { dot: true }));
@@ -98,22 +97,20 @@ export default async function bundle(config?: Configuration): Promise<void> {
 			rollup(webMinInputOptions)
 		]);
 
-		const writer = (bundle: RollupBuild) => {
-			return (formatInfo: FormatInfo) => {
-				const { format, suffix } = formatInfo;
+		const writer = (bundle: RollupBuild) => (formatInfo: FormatInfo) => {
+			const { format, suffix } = formatInfo;
 
-				const outputOptions = createOutputOptions({
-					fileName,
-					suffix: nvl(suffix, format),
-					format,
-					libraryName,
-					outDir,
-					sourceMap,
-					globals
-				});
+			const outputOptions = createOutputOptions({
+				fileName,
+				suffix: nvl(suffix, format),
+				format,
+				libraryName,
+				outDir,
+				sourceMap,
+				globals
+			});
 
-				return bundle.write(outputOptions);
-			};
+			return bundle.write(outputOptions);
 		};
 
 		const webUnminFormats = webFormats.filter(format => !format.min);

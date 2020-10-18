@@ -16,7 +16,7 @@ const contain = (items: (string | RegExp)[], itemToFind: string | RegExp) =>
 		return itemToFind === item;
 	});
 
-const nodeModulesRegex = /[\/\\]node_modules[\/\\]/;
+const nodeModulesRegex = /[/\\]node_modules[/\\]/;
 const forceBundleModules = [
 	/vue-runtime-helpers/,
 	/vue-class-component/,
@@ -77,7 +77,7 @@ export default function nodeExternals(
 
 		// Node package name
 		const validateResult = validateNPMPackageName(id);
-		const isNPMPackage: boolean = validateResult.validForNewPackages;
+		const isNPMPackage = validateResult.validForNewPackages;
 		if (isNPMPackage) {
 			return true;
 		}
