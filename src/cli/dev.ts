@@ -68,7 +68,7 @@ export async function handler(argv: Arguments<DevArgs>): Promise<void> {
 		define: {
 			...(typeof define === 'object' ? define : {}),
 			'process.env.NODE_ENV': 'development',
-			'IS_WEB_BUNDLE': false
+			IS_WEB_BUNDLE: false
 		},
 		port,
 		open,

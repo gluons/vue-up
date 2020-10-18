@@ -1,0 +1,9 @@
+{
+	"extends": "gluons/vue-ts",
+	"env": {
+		"jest": true
+	},
+	"parserOptions": {
+		"project": "./tsconfig-eslint.json"
+	}
+}

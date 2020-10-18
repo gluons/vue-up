@@ -1,4 +1,4 @@
-import JoyCon from 'joycon';
+import JoyCon, { LoadResult, MultiLoader } from 'joycon';
 import JoyConYAMLLoader from 'joycon-yaml-loader';
 import nvl from 'nvl';
 import { homedir } from 'os';
@@ -6,6 +6,10 @@ import { basename, dirname, resolve } from 'path';
 
 import Configuration from '../types/Configuration';
 import ifMerge from '../utils/ifMerge';
+
+interface ConfigurationLoadResult extends LoadResult {
+	data?: Configuration;
+}
 
 const NAME = 'vue-up';
 
@@ -37,7 +41,8 @@ export default async function loadConfig(
 
 	// TypeScript loader
 	try {
-		const JoyConTSLoader = require('joycon-ts-loader');
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		const JoyConTSLoader = require('joycon-ts-loader') as MultiLoader;
 
 		joycon.addLoader(JoyConTSLoader);
 	} catch (_) {}
@@ -46,13 +51,16 @@ export default async function loadConfig(
 	if (configPath) {
 		const configDir = resolve(dirname(configPath));
 		const configFile = basename(configPath);
-		const { data } = await joycon.load([configFile], configDir);
+		const { data } = (await joycon.load(
+			[configFile],
+			configDir
+		)) as ConfigurationLoadResult;
 
-		config = nvl(data, {});
+		config = nvl<Configuration>(data, {} as Configuration);
 	} else {
-		const { data } = await joycon.load();
+		const { data } = (await joycon.load()) as ConfigurationLoadResult;
 
-		config = nvl(data, {});
+		config = nvl<Configuration>(data, {} as Configuration);
 	}
 
 	config = ifMerge(privilegeConfig, config) as Configuration;

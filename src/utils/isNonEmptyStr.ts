@@ -2,9 +2,9 @@
  * Check whether given object is non-empty string.
  *
  * @export
- * @param {any} obj An object
+ * @param {unknown} obj An object
  * @returns {boolean}
  */
-export default function isNonEmptyStr(obj: any): boolean {
+export default function isNonEmptyStr(obj: unknown): boolean {
 	return typeof obj === 'string' && obj.length > 0;
 }

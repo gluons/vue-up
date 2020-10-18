@@ -14,9 +14,7 @@ const child = spawn('node', [cliPath, '-l', 'HelloPlugin'], {
 
 child.on('close', code => {
 	if (code === 0) {
-		process.stdout.write(
-			`${badge('Run CLI succeed.', 'green')}${EOL}`
-		);
+		process.stdout.write(`${badge('Run CLI succeed.', 'green')}${EOL}`);
 	} else {
 		process.stderr.write(
 			`${badge(`Run CLI fail. Exit with ${code}`, 'red')}${EOL}`
@@ -25,9 +23,7 @@ child.on('close', code => {
 	process.exitCode = code;
 });
 child.on('error', err => {
-	process.stderr.write(
-		`${badge('Run CLI error.', 'red')}${EOL}`
-	);
+	process.stderr.write(`${badge('Run CLI error.', 'red')}${EOL}`);
 	console.error(err);
 	process.exitCode = 1;
 });

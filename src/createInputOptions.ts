@@ -1,9 +1,17 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import postcss from '@gluons/rollup-plugin-postcss-only';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import { VueTemplateCompiler } from '@vue/component-compiler-utils/dist/types';
 import cssnano from 'cssnano';
-import { ExternalOption, InputOptions as RollupInputOptions, RollupWarning, WarningHandler } from 'rollup';
+import {
+	ExternalOption,
+	InputOptions as RollupInputOptions,
+	Plugin,
+	RollupWarning,
+	WarningHandler
+} from 'rollup';
 import minify from 'rollup-plugin-babel-minify';
 import resolveAlias from 'rollup-plugin-resolve-alias';
 import ts from 'rollup-plugin-typescript2';
@@ -58,10 +66,10 @@ export interface InputOptions {
 	/**
 	 * Define global constants to apply at compile time
 	 *
-	 * @type {Record<string, any>}
+	 * @type {Record<string, unknown>}
 	 * @memberof InputOptions
 	 */
-	define: Record<string, any>;
+	define: Record<string, unknown>;
 	/**
 	 * External dependencies (Rollup's `external`)
 	 *
@@ -87,7 +95,9 @@ export interface InputOptions {
  * @param {ExternalOption} [externals=['vue']] External dependencies. (Rollup's `external`)
  * @returns {RollupFileOptions}
  */
-export default function createInputOptions(options: InputOptions): RollupInputOptions {
+export default function createInputOptions(
+	options: InputOptions
+): RollupInputOptions {
 	const {
 		entry,
 		minimize,
@@ -104,7 +114,7 @@ export default function createInputOptions(options: InputOptions): RollupInputOp
 	const definedConstants = {
 		...(typeof define === 'object' ? stringifyObjectValues(define) : {}),
 		'process.env.NODE_ENV': JSON.stringify('production'),
-		'IS_WEB_BUNDLE': JSON.stringify(isWeb)
+		IS_WEB_BUNDLE: JSON.stringify(isWeb)
 	};
 	const inputOptions: RollupInputOptions = {
 		input: entry,
@@ -120,31 +130,32 @@ export default function createInputOptions(options: InputOptions): RollupInputOp
 			}),
 			postcss({
 				fileName: cssFileName,
-				plugins: (minimize ? [cssnano({ preset: 'default' })] : [])
+				plugins: minimize ? [cssnano({ preset: 'default' })] : []
 			}),
 			vue({
 				css: false,
 				template: {
-					compiler: require('vue-template-compiler'),
+					compiler: require('vue-template-compiler') as VueTemplateCompiler,
 					compilerOptions: void 0,
 					isProduction: true,
 					optimizeSSR: ssr
 				}
 			}),
-			...(
-				minimize ?
-				[
-					minify({
-						comments: false,
-						mangle: false
-					})
-				] :
-				[]
-			),
+			...(minimize
+				? [
+						minify({
+							comments: false,
+							mangle: false
+						})
+				  ]
+				: ([] as Plugin[])),
 			progress()
 		],
 		external: externals,
-		onwarn: ((warning: RollupWarning, warn: (warning: string | RollupWarning) => void) => {
+		onwarn: ((
+			warning: RollupWarning,
+			warn: (warning: string | RollupWarning) => void
+		) => {
 			if (warning.code === 'THIS_IS_UNDEFINED') {
 				return;
 			}

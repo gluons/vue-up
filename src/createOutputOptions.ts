@@ -68,8 +68,10 @@ export interface OutputOptions {
  * @param {OutputOptions} options Options
  * @returns {RollupOutputOptions}
  */
-export default function createOutputOptions(options: OutputOptions): RollupOutputOptions {
-	let {
+export default function createOutputOptions(
+	options: OutputOptions
+): RollupOutputOptions {
+	const {
 		fileName,
 		suffix,
 		format,
