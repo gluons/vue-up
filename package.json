@@ -42,6 +42,7 @@
     "url": "https://github.com/gluons/vue-up/issues"
   },
   "homepage": "https://gluons.github.io/vue-up/",
+  "prettier": "@gluons/prettier-config",
   "peerDependencies": {
     "vue": "2",
     "vue-template-compiler": "2"
