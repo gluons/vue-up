@@ -4,8 +4,8 @@
   "description": "A documentation website for vue-up.",
   "private": true,
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build",
+    "dev": "cross-env NODE_ENV=development vuepress dev",
+    "build": "cross-env NODE_ENV=production vuepress build",
     "lint": "eslint --ext .vue,.js .vuepress/",
     "test": "npm run lint"
   },
@@ -27,6 +27,7 @@
   "prettier": "@gluons/prettier-config",
   "devDependencies": {
     "@gluons/prettier-config": "^2.0.6",
+    "cross-env": "^7.0.2",
     "eslint": "^7.11.0",
     "eslint-config-gluons": "^6.0.8",
     "eslint-plugin-vue": "^7.1.0",
