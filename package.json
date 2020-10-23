@@ -24,11 +24,14 @@
     "url": "https://github.com/gluons/vue-up/issues"
   },
   "homepage": "https://gluons.github.io/vue-up/",
+  "prettier": "@gluons/prettier-config",
   "devDependencies": {
+    "@gluons/prettier-config": "^2.0.6",
     "eslint": "^7.11.0",
     "eslint-config-gluons": "^6.0.8",
     "eslint-plugin-vue": "^7.1.0",
     "node-sass": "^4.11.0",
+    "prettier": "^2.1.2",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^10.0.4",

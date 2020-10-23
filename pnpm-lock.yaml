@@ -1,8 +1,10 @@
 devDependencies:
+  '@gluons/prettier-config': 2.0.6_prettier@2.1.2
   eslint: 7.11.0
-  eslint-config-gluons: 6.0.8_eslint@7.11.0
+  eslint-config-gluons: 6.0.8_eslint@7.11.0+prettier@2.1.2
   eslint-plugin-vue: 7.1.0_eslint@7.11.0
   node-sass: 4.14.1
+  prettier: 2.1.2
   pug: 3.0.0
   pug-plain-loader: 1.0.0_pug@3.0.0
   sass-loader: 10.0.4_node-sass@4.14.1
@@ -988,6 +990,14 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-4YVwPkANLeNtRjMekzux1ci8hIaH5eGKktGqR0d3LWsKNn5B2X/1Z6Trxy7jQXl9EBGE6Yj02O+t09FMeRllaA==
+  /@gluons/prettier-config/2.0.6_prettier@2.1.2:
+    dependencies:
+      prettier: 2.1.2
+    dev: true
+    peerDependencies:
+      prettier: 1 - 2
+    resolution:
+      integrity: sha512-qjw+sN8qDL9Yg7B/EsmBow4AE0XbuqKJBwZ62BpibSOQGKfbUhZpGYrmLe9EYFRtVRQdJJiCmpXfDKz+3sesbw==
   /@mrmlnc/readdir-enhanced/2.2.1:
     dependencies:
       call-me-maybe: 1.0.1
@@ -3651,11 +3661,12 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-  /eslint-config-gluons/6.0.8_eslint@7.11.0:
+  /eslint-config-gluons/6.0.8_eslint@7.11.0+prettier@2.1.2:
     dependencies:
       eslint: 7.11.0
       eslint-config-prettier: 6.14.0_eslint@7.11.0
-      eslint-plugin-prettier: 3.1.4_eslint@7.11.0
+      eslint-plugin-prettier: 3.1.4_eslint@7.11.0+prettier@2.1.2
+      prettier: 2.1.2
     dev: true
     engines:
       node: '>=10'
@@ -3678,9 +3689,10 @@ packages:
       eslint: '>=3.14.1'
     resolution:
       integrity: sha512-DbVwh0qZhAC7CNDWcq8cBdK6FcVHiMTKmCypOPWeZkp9hJ8xYwTaWSa6bb6cjfi8KOeJy0e9a8Izxyx+O4+gCQ==
-  /eslint-plugin-prettier/3.1.4_eslint@7.11.0:
+  /eslint-plugin-prettier/3.1.4_eslint@7.11.0+prettier@2.1.2:
     dependencies:
       eslint: 7.11.0
+      prettier: 2.1.2
       prettier-linter-helpers: 1.0.0
     dev: true
     engines:
@@ -7172,6 +7184,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+  /prettier/2.1.2:
+    dev: true
+    engines:
+      node: '>=10.13.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
   /pretty-error/2.1.2:
     dependencies:
       lodash: 4.17.20
@@ -9638,10 +9657,12 @@ packages:
     resolution:
       integrity: sha1-4Se9nmb9hGvl6rSME5SIL3wOT5g=
 specifiers:
+  '@gluons/prettier-config': ^2.0.6
   eslint: ^7.11.0
   eslint-config-gluons: ^6.0.8
   eslint-plugin-vue: ^7.1.0
   node-sass: ^4.11.0
+  prettier: ^2.1.2
   pug: ^3.0.0
   pug-plain-loader: ^1.0.0
   sass-loader: ^10.0.4
