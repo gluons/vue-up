@@ -12,8 +12,8 @@ import {
 	RollupWarning,
 	WarningHandler
 } from 'rollup';
-import minify from 'rollup-plugin-babel-minify';
 import resolveAlias from 'rollup-plugin-resolve-alias';
+import { terser } from 'rollup-plugin-terser';
 import ts from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
 
@@ -141,14 +141,7 @@ export default function createInputOptions(
 					optimizeSSR: ssr
 				}
 			}),
-			...(minimize
-				? [
-						minify({
-							comments: false,
-							mangle: false
-						})
-				  ]
-				: ([] as Plugin[])),
+			...(minimize ? [terser()] : ([] as Plugin[])),
 			progress()
 		],
 		external: externals,
