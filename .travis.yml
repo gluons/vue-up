@@ -1,10 +1,16 @@
 language: node_js
 node_js:
   - "lts/*"
+cache:
+  npm: false
+  directories:
+    - "~/.pnpm-store"
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-before_deploy: yarn build
+  - curl -L https://unpkg.com/@pnpm/self-installer | node
+  - pnpm config set store-dir ~/.pnpm-store
+install:
+  - pnpm install
+before_deploy: pnpm build
 deploy:
   provider: pages
   skip-cleanup: true
