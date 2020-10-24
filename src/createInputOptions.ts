@@ -5,6 +5,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { VueTemplateCompiler } from '@vue/component-compiler-utils/dist/types';
 import cssnano from 'cssnano';
+import { AcceptedPlugin } from 'postcss';
 import {
 	ExternalOption,
 	InputOptions as RollupInputOptions,
@@ -130,7 +131,9 @@ export default function createInputOptions(
 			}),
 			postcss({
 				fileName: cssFileName,
-				plugins: minimize ? [cssnano({ preset: 'default' })] : []
+				plugins: minimize
+					? [cssnano({ preset: 'default' })]
+					: ([] as AcceptedPlugin[])
 			}),
 			vue({
 				css: false,
