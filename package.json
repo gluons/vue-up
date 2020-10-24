@@ -116,5 +116,10 @@
   },
   "optionalDependencies": {
     "joycon-ts-loader": "^3.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "^8.1.3"
+    }
   }
 }
