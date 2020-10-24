@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import pick from 'lodash.pick';
 
 import Configuration from '../types/Configuration';

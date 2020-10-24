@@ -66,10 +66,10 @@ export interface InputOptions {
 	/**
 	 * Define global constants to apply at compile time
 	 *
-	 * @type {Record<string, unknown>}
+	 * @type {Record<string, any>}
 	 * @memberof InputOptions
 	 */
-	define: Record<string, unknown>;
+	define: Record<string, any>;
 	/**
 	 * External dependencies (Rollup's `external`)
 	 *
