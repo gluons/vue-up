@@ -5,6 +5,7 @@ import { homedir } from 'os';
 import { basename, dirname, resolve } from 'path';
 
 import Configuration from '../types/Configuration';
+import hasTypeScript from '../utils/hasTypeScript';
 import ifMerge from '../utils/ifMerge';
 
 interface ConfigurationLoadResult extends LoadResult {
@@ -40,12 +41,14 @@ export default async function loadConfig(
 	joycon.addLoader(JoyConYAMLLoader);
 
 	// TypeScript loader
-	try {
-		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const JoyConTSLoader = require('joycon-ts-loader') as MultiLoader;
+	if (hasTypeScript()) {
+		try {
+			// eslint-disable-next-line @typescript-eslint/no-var-requires
+			const JoyConTSLoader = require('joycon-ts-loader') as MultiLoader;
 
-		joycon.addLoader(JoyConTSLoader);
-	} catch (_) {}
+			joycon.addLoader(JoyConTSLoader);
+		} catch (_) {}
+	}
 
 	let config: Configuration;
 	if (configPath) {

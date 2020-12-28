@@ -19,6 +19,7 @@ import vue from 'rollup-plugin-vue';
 
 import constructAlias from './lib/constructAlias';
 import progress from './lib/ProgressPlugin';
+import hasTypeScript from './utils/hasTypeScript';
 import stringifyObjectValues from './utils/stringifyObjectValues';
 
 /**
@@ -132,9 +133,7 @@ export default function createInputOptions(
 			resolveAlias({
 				aliases: constructedAlias
 			}),
-			ts({
-				clean: true
-			}),
+			...(hasTypeScript() ? [ts({ clean: true })] : []),
 			postcss({
 				fileName: cssFileName,
 				plugins: minimize
