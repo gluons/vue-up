@@ -150,7 +150,7 @@ export default function createInputOptions(
 		external: externals,
 		onwarn: ((
 			warning: RollupWarning,
-			warn: (warning: string | RollupWarning) => void
+			warn: (_warning: string | RollupWarning) => void
 		) => {
 			if (warning.code === 'THIS_IS_UNDEFINED') {
 				return;
