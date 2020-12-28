@@ -10,8 +10,7 @@ import {
 	ExternalOption,
 	InputOptions as RollupInputOptions,
 	Plugin,
-	RollupWarning,
-	WarningHandler
+	WarningHandlerWithDefault
 } from 'rollup';
 import resolveAlias from 'rollup-plugin-resolve-alias';
 import { terser } from 'rollup-plugin-terser';
@@ -117,6 +116,13 @@ export default function createInputOptions(
 		'process.env.NODE_ENV': JSON.stringify('production'),
 		IS_WEB_BUNDLE: JSON.stringify(isWeb)
 	};
+	const onwarn: WarningHandlerWithDefault = (warning, warn) => {
+		if (warning.code === 'THIS_IS_UNDEFINED') {
+			return;
+		}
+
+		warn(warning);
+	};
 	const inputOptions: RollupInputOptions = {
 		input: entry,
 		plugins: [
@@ -148,16 +154,7 @@ export default function createInputOptions(
 			progress()
 		],
 		external: externals,
-		onwarn: ((
-			warning: RollupWarning,
-			warn: (_warning: string | RollupWarning) => void
-		) => {
-			if (warning.code === 'THIS_IS_UNDEFINED') {
-				return;
-			}
-
-			warn(warning);
-		}) as WarningHandler
+		onwarn
 	};
 
 	return inputOptions;
