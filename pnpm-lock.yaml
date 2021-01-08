@@ -16,7 +16,7 @@ dependencies:
   log-update: 4.0.0
   moren: 3.0.0
   nvl: 1.3.0
-  ow: 0.21.0
+  ow: 0.22.0
   postcss: 8.2.1
   pug: 3.0.0
   rollup: 2.35.1
@@ -7604,7 +7604,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-0CWcCECdMVc2Rw3U5w9ZjqX6ga6ubk1xDVKxtBQPK7wis/0F2r9T6k4ydGYhecl7YUBxBVxhL5oisPsNxAPe2g==
-  /ow/0.21.0:
+  /ow/0.22.0:
     dependencies:
       '@sindresorhus/is': 4.0.0
       callsites: 3.1.0
@@ -7616,7 +7616,7 @@ packages:
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-dlsoDe39g7mhdsdrC1R/YwjT7yjVqE3svWwOlMGvN690waBkgEZBmKBdkmKvSt5/wZ6E0Jn/nIesPqMZOpPKqw==
+      integrity: sha512-VZpjntwsFxg+oM2pZ0Km8p6+FLAugD86TQWHmz0Ldm/rfSs6qezggArumK+FrBUFAXodWULJrbV5ie0LkhWJdQ==
   /p-each-series/2.2.0:
     dev: true
     engines:
@@ -11317,7 +11317,7 @@ specifiers:
   log-update: ^4.0.0
   moren: ^3.0.0
   nvl: ^1.3.0
-  ow: ^0.21.0
+  ow: ^0.22.0
   postcss: ^8.2.1
   prettier: ^2.2.1
   pug: ^3.0.0
