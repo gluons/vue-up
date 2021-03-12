@@ -9,8 +9,8 @@ dependencies:
   cssnano: 4.1.10
   del: 6.0.0
   figures: 3.2.0
-  joycon: 2.2.5
-  joycon-yaml-loader: 2.0.2_joycon@2.2.5
+  joycon: 3.0.0
+  joycon-yaml-loader: 2.0.2_joycon@3.0.0
   lodash.isnil: 4.0.0
   lodash.pick: 4.4.0
   log-update: 4.0.0
@@ -64,7 +64,7 @@ devDependencies:
   vue-template-compiler: 2.6.12
 lockfileVersion: 5.2
 optionalDependencies:
-  joycon-ts-loader: 3.0.2_joycon@2.2.5+typescript@4.1.3
+  joycon-ts-loader: 3.0.2_joycon@3.0.0+typescript@4.1.3
 packages:
   /@babel/code-frame/7.12.11:
     dependencies:
@@ -6612,9 +6612,9 @@ packages:
       ts-node: '*'
     resolution:
       integrity: sha512-lGS5PXGAzR4RF7V5+XObhqz2KZIDUA1yD0DG6pBVmy10eh0ZIXQImRuzocsI/N2XZ1GrLFwTS27In2i2jlpq1Q==
-  /joycon-ts-loader/3.0.2_joycon@2.2.5+typescript@4.1.3:
+  /joycon-ts-loader/3.0.2_joycon@3.0.0+typescript@4.1.3:
     dependencies:
-      joycon: 2.2.5
+      joycon: 3.0.0
       ts-node: 9.1.1_typescript@4.1.3
       typescript: 4.1.3
     dev: false
@@ -6624,9 +6624,9 @@ packages:
       typescript: ^4.0.0
     resolution:
       integrity: sha512-u8AcO4J01x169fAcXK6iqSTtyw0zrEkAhA/F0iM61KSpQZwYc4hlA7YQaeSlmKGt4s4Iu49uoHeb7b0Fc8C9qQ==
-  /joycon-yaml-loader/2.0.2_joycon@2.2.5:
+  /joycon-yaml-loader/2.0.2_joycon@3.0.0:
     dependencies:
-      joycon: 2.2.5
+      joycon: 3.0.0
       js-yaml: 3.14.1
       pify: 4.0.1
     dev: false
@@ -6634,12 +6634,12 @@ packages:
       joycon: ^1.0.0 || ^2.0.0
     resolution:
       integrity: sha512-lS02t97g0+/boaYFdSoSXO3Z33MylcIIlXC6+u90wpJc/iSsl80n/PO2V83LDxl25mSIE2t3f2P/WpU71JCKbA==
-  /joycon/2.2.5:
+  /joycon/3.0.0:
     dev: false
     engines:
-      node: '>=6'
+      node: '>=12'
     resolution:
-      integrity: sha512-YqvUxoOcVPnCp0VU1/56f+iKSdvIRJYPznH22BdXV3xMk75SFXhWeJkZ8C9XxUWt1b5x2X1SxuFygW1U0FmkEQ==
+      integrity: sha512-liltsn9SO+IuOHnVb1EgW6HBaHb6rUsMzkLKnGV7izz8UrXBpa3bsMSa2J8pbXo3B4Ebk6Wm2Izs4Dgbl2EGPw==
   /js-base64/2.6.4:
     dev: false
     resolution:
@@ -11486,7 +11486,7 @@ specifiers:
   eslint-config-gluons: ^6.1.0
   figures: ^3.2.0
   jest: ^26.6.3
-  joycon: ^2.2.5
+  joycon: ^3.0.0
   joycon-ts-loader: ^3.0.2
   joycon-yaml-loader: ^2.0.2
   lodash.isnil: ^4.0.0
