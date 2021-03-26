@@ -1,7 +1,7 @@
 dependencies:
   '@gluons/rollup-plugin-postcss-only': 4.0.0_postcss@8.2.4+rollup@2.38.0
   '@gluons/vue-pack-dev': 1.20.3_48c493dcf090f32524527f09c7fa59a6
-  '@rollup/plugin-commonjs': 17.0.0_rollup@2.38.0
+  '@rollup/plugin-commonjs': 18.0.0_rollup@2.38.0
   '@rollup/plugin-node-resolve': 11.1.0_rollup@2.38.0
   '@rollup/plugin-replace': 2.3.4_rollup@2.38.0
   '@sindresorhus/slugify': 1.1.0
@@ -1335,7 +1335,7 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-8Broas6vTtW4GIXTAHDoE32hnN2M5ykgCpWGbuXHQ15vEMqr23pB76e/GZcYsZCHALv50ktd24qhEyKr6wBtow==
-  /@rollup/plugin-commonjs/17.0.0_rollup@2.38.0:
+  /@rollup/plugin-commonjs/18.0.0_rollup@2.38.0:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.38.0
       commondir: 1.0.1
@@ -1343,7 +1343,7 @@ packages:
       glob: 7.1.6
       is-reference: 1.2.1
       magic-string: 0.25.7
-      resolve: 1.19.0
+      resolve: 1.20.0
       rollup: 2.38.0
     dev: false
     engines:
@@ -1351,7 +1351,7 @@ packages:
     peerDependencies:
       rollup: ^2.30.0
     resolution:
-      integrity: sha512-/omBIJG1nHQc+bgkYDuLpb/V08QyutP9amOrJRUSlYJZP+b/68gM//D8sxJe3Yry2QnYIr3QjR3x4AlxJEN3GA==
+      integrity: sha512-fj92shhg8luw7XbA0HowAqz90oo7qtLGwqTKbyZ8pmOyH8ui5e+u0wPEgeHLH3djcVma6gUCUrjY6w5R2o1u6g==
   /@rollup/plugin-node-resolve/11.1.0_rollup@2.38.0:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.38.0
@@ -11456,7 +11456,7 @@ specifiers:
   '@gluons/prettier-config': ^2.0.6
   '@gluons/rollup-plugin-postcss-only': ^4.0.0
   '@gluons/vue-pack-dev': ^1.20.3
-  '@rollup/plugin-commonjs': ^17.0.0
+  '@rollup/plugin-commonjs': ^18.0.0
   '@rollup/plugin-node-resolve': ^11.1.0
   '@rollup/plugin-replace': ^2.3.4
   '@sindresorhus/slugify': ^1.1.0
