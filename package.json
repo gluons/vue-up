@@ -75,7 +75,7 @@
     "rollup-plugin-vue": "<=6.0.0",
     "tslib": "^2.1.0",
     "validate-npm-package-name": "^3.0.0",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
