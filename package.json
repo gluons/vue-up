@@ -75,7 +75,7 @@
     "rollup-plugin-vue": "<=6.0.0",
     "tslib": "^2.1.0",
     "validate-npm-package-name": "^3.0.0",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -91,7 +91,7 @@
     "@types/node": "^12.19.15",
     "@types/signale": "^1.4.1",
     "@types/validate-npm-package-name": "^3.0.2",
-    "@types/yargs": "^15.0.12",
+    "@types/yargs": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
     "@vue/component-compiler-utils": "^3.2.0",
