@@ -9,7 +9,7 @@ specifiers:
   '@gluons/vue-pack-dev': ^1.20.3
   '@rollup/plugin-commonjs': ^17.0.0
   '@rollup/plugin-node-resolve': ^11.1.0
-  '@rollup/plugin-replace': ^2.3.4
+  '@rollup/plugin-replace': ^4.0.0
   '@sindresorhus/slugify': ^1.1.0
   '@types/cheerio': ^0.22.23
   '@types/cross-spawn': ^6.0.1
@@ -70,7 +70,7 @@ dependencies:
   '@gluons/vue-pack-dev': 1.20.3_48c493dcf090f32524527f09c7fa59a6
   '@rollup/plugin-commonjs': 17.0.0_rollup@2.38.0
   '@rollup/plugin-node-resolve': 11.1.0_rollup@2.38.0
-  '@rollup/plugin-replace': 2.3.4_rollup@2.38.0
+  '@rollup/plugin-replace': 4.0.0_rollup@2.38.0
   '@sindresorhus/slugify': 1.1.0
   chalk: 4.1.0
   cssnano: 4.1.10
@@ -1475,8 +1475,8 @@ packages:
       rollup: 2.38.0
     dev: false
 
-  /@rollup/plugin-replace/2.3.4_rollup@2.38.0:
-    resolution: {integrity: sha512-waBhMzyAtjCL1GwZes2jaE9MjuQ/DQF2BatH3fRivUF3z0JBFrU0U6iBNC/4WR+2rLKhaAhPWDNPYp4mI6RqdQ==}
+  /@rollup/plugin-replace/4.0.0_rollup@2.38.0:
+    resolution: {integrity: sha512-+rumQFiaNac9y64OHtkHGmdjm7us9bo1PlbgQfdihQtuNxzjpaB064HbRnewUOggLQxVCCyINfStkgmBeQpv1g==}
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     dependencies:
