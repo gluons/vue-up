@@ -37,7 +37,7 @@ specifiers:
   eslint-config-gluons: ^6.1.0
   figures: ^3.2.0
   jest: ^26.6.3
-  joycon: ^2.2.5
+  joycon: ^3.0.0
   joycon-ts-loader: ^3.0.2
   joycon-yaml-loader: ^2.0.2
   lodash.isnil: ^4.0.0
@@ -76,8 +76,8 @@ dependencies:
   cssnano: 4.1.10
   del: 6.0.0
   figures: 3.2.0
-  joycon: 2.2.5
-  joycon-yaml-loader: 2.0.2_joycon@2.2.5
+  joycon: 3.1.1
+  joycon-yaml-loader: 2.0.2_joycon@3.1.1
   lodash.isnil: 4.0.0
   lodash.pick: 4.4.0
   log-update: 4.0.0
@@ -96,7 +96,7 @@ dependencies:
   yargs: 16.2.0
 
 optionalDependencies:
-  joycon-ts-loader: 3.0.2_joycon@2.2.5+typescript@4.1.3
+  joycon-ts-loader: 3.0.2_joycon@3.1.1+typescript@4.1.3
 
 devDependencies:
   '@babel/core': 7.12.10
@@ -7006,32 +7006,32 @@ packages:
       - utf-8-validate
     dev: true
 
-  /joycon-ts-loader/3.0.2_joycon@2.2.5+typescript@4.1.3:
+  /joycon-ts-loader/3.0.2_joycon@3.1.1+typescript@4.1.3:
     resolution: {integrity: sha512-u8AcO4J01x169fAcXK6iqSTtyw0zrEkAhA/F0iM61KSpQZwYc4hlA7YQaeSlmKGt4s4Iu49uoHeb7b0Fc8C9qQ==}
     requiresBuild: true
     peerDependencies:
       joycon: ^1.0.0 || ^2.0.0
       typescript: ^4.0.0
     dependencies:
-      joycon: 2.2.5
+      joycon: 3.1.1
       ts-node: 9.1.1_typescript@4.1.3
       typescript: 4.1.3
     dev: false
     optional: true
 
-  /joycon-yaml-loader/2.0.2_joycon@2.2.5:
+  /joycon-yaml-loader/2.0.2_joycon@3.1.1:
     resolution: {integrity: sha512-lS02t97g0+/boaYFdSoSXO3Z33MylcIIlXC6+u90wpJc/iSsl80n/PO2V83LDxl25mSIE2t3f2P/WpU71JCKbA==}
     peerDependencies:
       joycon: ^1.0.0 || ^2.0.0
     dependencies:
-      joycon: 2.2.5
+      joycon: 3.1.1
       js-yaml: 3.14.1
       pify: 4.0.1
     dev: false
 
-  /joycon/2.2.5:
-    resolution: {integrity: sha512-YqvUxoOcVPnCp0VU1/56f+iKSdvIRJYPznH22BdXV3xMk75SFXhWeJkZ8C9XxUWt1b5x2X1SxuFygW1U0FmkEQ==}
-    engines: {node: '>=6'}
+  /joycon/3.1.1:
+    resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
+    engines: {node: '>=10'}
     dev: false
 
   /js-base64/2.6.4:
