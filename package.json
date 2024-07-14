@@ -50,7 +50,7 @@
   "dependencies": {
     "@gluons/rollup-plugin-postcss-only": "^4.0.0",
     "@gluons/vue-pack-dev": "^1.20.3",
-    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-commonjs": "^26.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-replace": "^2.3.4",
     "@sindresorhus/slugify": "^1.1.0",
