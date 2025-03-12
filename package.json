@@ -54,7 +54,7 @@
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-replace": "^2.3.4",
     "@sindresorhus/slugify": "^1.1.0",
-    "chalk": "^4.1.0",
+    "chalk": "^5.0.0",
     "cssnano": "^4.1.10",
     "del": "^6.0.0",
     "figures": "^3.2.0",
